@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss Blog &quot; Expert car detailing tips, product reviews, how-to guides and automotive care insights from certified professionals.">
+  <title>Blog &quot; CarGloss Car Detailing Tips & Insights</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .blog-filter { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; }
+    .blog-filter-btn { padding:8px 18px; border-radius:var(--radius-full); border:1.5px solid var(--border); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all 0.3s ease; background:var(--glass); color:var(--text-muted); font-family:var(--font-body); }
+    .blog-filter-btn:hover,.blog-filter-btn.active { background:var(--electric-fill); border-color:var(--electric-fill); color:white; }
+    .featured-post { background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-xl); overflow:hidden; display:flex; align-items:stretch; }
+    .featured-img { flex:0 0 55%; position:relative; }
+    .featured-img img { width:100%; height:100%; object-fit:cover; }
+    .featured-body { flex:1; padding:48px; display:flex; flex-direction:column; justify-content:center; }
+    @media (max-width:768px) { .featured-post { flex-direction:column; } .featured-img { flex:none; height:240px; } .featured-body { padding:24px; } }
+    .sidebar-widget { background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:24px; margin-bottom:20px; }
+    .sidebar-title { font-family:var(--font-heading); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:16px; }
+    .category-tag { display:inline-block; margin:4px; padding:6px 14px; border-radius:var(--radius-full); border:1px solid var(--border); font-size:0.78rem; font-weight:600; color:var(--text-muted); cursor:pointer; transition:all 0.3s ease; }
+    .category-tag:hover { border-color:var(--electric); color:var(--electric); background:rgba(40,120,255,0.06); }
+    .popular-post { display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--border); }
+    .popular-post:last-child { border-bottom:none; }
+    .popular-post-img { width:56px; height:56px; border-radius:var(--radius-sm); object-fit:cover; flex-shrink:0; background:var(--bg-3); display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+    .popular-post-title { font-size:0.82rem; font-weight:600; color:var(--text); line-height:1.4; margin-bottom:4px; }
+    .popular-post-date { font-size:0.72rem; color:var(--text-muted); }
+    .newsletter-form { display:flex; gap:8px; margin-top:12px; }
+    .newsletter-form input { flex:1; background:var(--bg-3); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px 14px; color:var(--text); font-size:0.85rem; outline:none; }
+    .newsletter-form input:focus { border-color:var(--electric); }
+    /* Sidebar search — redesigned */
+    .sidebar-search { position:relative; overflow:hidden; }
+    .sidebar-search::before { content:''; position:absolute; top:-40px; right:-40px; width:120px; height:120px; background:radial-gradient(circle,rgba(40,120,255,0.15) 0%,transparent 70%); border-radius:50%; pointer-events:none; }
+    .search-head { display:flex; align-items:center; gap:12px; margin-bottom:14px; position:relative; }
+    .search-head-icon { width:42px; height:42px; border-radius:12px; background:var(--gradient-blue); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem; flex-shrink:0; box-shadow:var(--shadow-blue); }
+    .search-sub { font-size:0.74rem; color:var(--text-muted); margin-top:2px; }
+    .search-field { display:flex; align-items:center; gap:8px; background:var(--bg-3); border:1.5px solid var(--border); border-radius:var(--radius-full); padding:10px 14px; transition:border-color 0.3s ease, box-shadow 0.3s ease; position:relative; }
+    .search-field:focus-within { border-color:var(--electric); box-shadow:0 0 0 3px rgba(40,120,255,0.15); }
+    .search-field-icon { color:var(--text-muted); font-size:0.85rem; flex-shrink:0; }
+    .search-field input { flex:1; min-width:0; background:none; border:none; outline:none; color:var(--text); font-size:0.875rem; font-family:var(--font-body); }
+    .search-field input::placeholder { color:var(--text-muted); opacity:1; }
+    .search-clear { width:26px; height:26px; border-radius:50%; border:1px solid var(--border); background:var(--glass); color:var(--text-muted); font-size:0.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s ease; }
+    .search-clear[hidden] { display:none; }
+    .search-clear:hover { color:var(--electric); border-color:var(--electric); }
+    .search-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; position:relative; }
+    .search-tags button { padding:5px 12px; border-radius:var(--radius-full); border:1px solid var(--border); background:transparent; color:var(--text-muted); font-size:0.72rem; font-weight:600; cursor:pointer; font-family:var(--font-body); transition:all 0.2s ease; }
+    .search-tags button:hover, .search-tags button.active { border-color:var(--electric); color:var(--electric); background:rgba(40,120,255,0.08); }
+    .search-count { font-size:0.75rem; color:var(--electric); font-weight:600; margin-top:10px; }
+    /* Sidebar Ready-to-Book — contrast hardened (dark card in both themes) */
+    .sidebar-book-cta h4 { font-weight:800; margin-bottom:8px; color:#fff; }
+    .sidebar-book-cta p { font-size:0.82rem; color:rgba(255,255,255,0.72); margin-bottom:16px; line-height:1.6; }
+    .book-cta-icon { width:52px; height:52px; margin:0 auto 12px; border-radius:14px; background:var(--gradient-blue); display:flex; align-items:center; justify-content:center; font-size:1.3rem; color:#fff; box-shadow:var(--shadow-blue); }
+  </style>
+</head>
+<body><!-- - Navbar - -->
+<nav class="navbar-custom" id="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="navbar-logo">
+      <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+      <span class="navbar-logo-text">Car<span>Gloss</span></span>
+    </a>
+
+    <ul class="navbar-nav-custom">
+      <li><a href="../index.html" class="nav-link-custom">Home</a></li>
+      <li><a href="home2.html" class="nav-link-custom">Home2</a></li>
+      <li><a href="about.html" class="nav-link-custom">About</a></li>
+      <li><a href="services.html" class="nav-link-custom">Services</a></li>
+      <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      <li class="nav-dropdown">
+        <a href="customer-dashboard.html" class="nav-link-custom">Dashboard <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+        <div class="nav-dropdown-menu">
+          <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+          <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="navbar-actions">
+      <button class="theme-toggle-btn" data-theme-toggle title="Toggle theme">
+        <span data-theme-icon><i class="fa-solid fa-sun"></i></span>
+      </button>
+      <button class="rtl-toggle-btn" data-rtl-toggle title="Toggle RTL">RTL</button>
+      <a href="contact.html" class="btn-primary-custom navbar-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i> Book Now
+      </a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html"><i class="fa-solid fa-house"></i> Home &ndash; General</a>
+  <a href="home2.html"><i class="fa-solid fa-car-side"></i> Home &ndash; Niche</a>
+  <a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
+  <a href="services.html"><i class="fa-solid fa-spray-can-sparkles"></i> Services</a>
+  <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+  <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+  <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+  <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+  <div style="padding:12px 0 4px">
+    <a href="contact.html" class="btn-primary-custom" style="width:100%;justify-content:center;height:42px;display:flex;align-items:center;padding:0 20px;text-decoration:none">
+      <i class="fa-solid fa-calendar-check"></i> Book Now
+    </a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="photo-hero" style="background:var(--gradient-hero)">
+  <div class="page-hero-bg" style="background-image:url('../assets/images/blog-night-drive.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="container-custom" style="position:relative;z-index:2;text-align:center">
+    <div class="section-badge" style="margin:0 auto 16px">Expert Insights</div>
+    <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem);max-width:700px;margin:0 auto 20px">The CarGloss <span class="text-electric">Blog</span></h1>
+    <p style="font-size:1rem;color:var(--text-muted);max-width:500px;margin:0 auto;line-height:1.7">Detailing tips, product guides, how-to articles and automotive care insights from our certified professionals.</p>
+  </div>
+</section>
+
+<!-- FEATURED POST -->
+<section class="section" style="padding-top:60px;padding-bottom:60px">
+  <div class="container-custom">
+    <div class="featured-post fade-up">
+      <div class="featured-img">
+        <img src="../assets/images/blog-featured-sedan.jpg" alt="Silver sedan after a full detailing package">
+        <div style="position:absolute;top:20px;left:20px"><span class="tag tag-blue">Featured</span></div>
+      </div>
+      <div class="featured-body">
+        <div class="blog-category">Detailing Guide</div>
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:12px;line-height:1.3">How to Choose the Right Car Detailing Package for Your Vehicle in 2026</h2>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:24px">With so many options available &quot; from basic wash to ceramic coating &quot; it can be overwhelming to choose the right service. Our certified detailers break it down step by step, based on your vehicle's condition, age, and how you use it.</p>
+        <div class="blog-meta" style="margin-bottom:20px">
+          <div class="reviewer-avatar avatar-sm">DC</div>
+          <span>Damien Cole</span>
+          <span class="blog-meta-sep">&bull;</span>
+          <span>Oct 8, 2026</span>
+          <span class="blog-meta-sep">&bull;</span>
+          <span>8 min read</span>
+        </div>
+        <a href="blog-details.html" data-post="choose-package" class="btn-primary-custom" style="align-self:flex-start">Read Full Article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG GRID + SIDEBAR -->
+<section class="section" style="padding-top:0">
+  <div class="container-custom">
+    <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+      <!-- Blog Grid -->
+      <div style="flex:1;min-width:280px">
+        <!-- Filter -->
+        <div class="blog-filter fade-up">
+          <button class="blog-filter-btn active" data-filter-btn="all">All</button>
+          <button class="blog-filter-btn" data-filter-btn="tips">Tips & Tricks</button>
+          <button class="blog-filter-btn" data-filter-btn="products">Products</button>
+          <button class="blog-filter-btn" data-filter-btn="howto">How-To</button>
+          <button class="blog-filter-btn" data-filter-btn="industry">Industry</button>
+          <button class="blog-filter-btn" data-filter-btn="reviews">Reviews</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+          <!-- Post 1 -->
+          <div class="blog-card fade-up delay-1" data-category="tips">
+            <div style="overflow:hidden"><img src="../assets/images/blog-clay-roadster.jpg" alt="Glossy blue classic roadster" class="blog-card-img"></div>
+            <div class="blog-card-body">
+              <div class="blog-category">Tips & Tricks</div>
+              <h3 class="blog-title">The Complete Clay Bar Guide: When and Why to Use It</h3>
+              <p class="blog-excerpt">Clay bar is the secret weapon every car enthusiast should know. Here's exactly when to use it and how to get the best results without damaging your paint.</p>
+              <div class="blog-meta">
+                <span>Marcus Webb</span><span class="blog-meta-sep">&bull;</span><span>Oct 5, 2026</span><span class="blog-meta-sep">&bull;</span><span>6 min</span>
+              </div>
+              <a href="blog-details.html" data-post="clay-bar-guide" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--electric);margin-top:12px">Read More &larr;&#39;</a>
+            </div>
+          </div>
+          <!-- Post 2 -->
+          <div class="blog-card fade-up delay-2" data-category="products">
+            <div style="overflow:hidden"><img src="../assets/images/blog-wax-dupont-ad.jpg" alt="Vintage DuPont car polish advertisement" class="blog-card-img"></div>
+            <div class="blog-card-body">
+              <div class="blog-category">Products</div>
+              <h3 class="blog-title">Best Carnauba Waxes of 2026: Professional Tested</h3>
+              <p class="blog-excerpt">We tested 12 premium carnauba waxes over 6 months on real customer vehicles. Here are the real-world results and our top picks for every budget.</p>
+              <div class="blog-meta">
+                <span>Priya Sharma</span><span class="blog-meta-sep">&bull;</span><span>Oct 1, 2026</span><span class="blog-meta-sep">&bull;</span><span>10 min</span>
+              </div>
+              <a href="blog-details.html" data-post="carnauba-waxes-2026" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--electric);margin-top:12px">Read More &larr;&#39;</a>
+            </div>
+          </div>
+          <!-- Post 3 -->
+          <div class="blog-card fade-up delay-1" data-category="howto">
+            <div style="overflow:hidden"><img src="../assets/images/blog-swirl-reflection.jpg" alt="City lights reflecting in swirl-free paint" class="blog-card-img"></div>
+            <div class="blog-card-body">
+              <div class="blog-category">How-To</div>
+              <h3 class="blog-title">How to Remove Swirl Marks Without a Machine Polisher</h3>
+              <p class="blog-excerpt">Don't have a DA polisher? No problem. Here's how to significantly reduce swirl marks by hand using the right products and technique.</p>
+              <div class="blog-meta">
+                <span>Marcus Webb</span><span class="blog-meta-sep">&bull;</span><span>Sep 28, 2026</span><span class="blog-meta-sep">&bull;</span><span>7 min</span>
+              </div>
+              <a href="blog-details.html" data-post="swirl-marks" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--electric);margin-top:12px">Read More &larr;&#39;</a>
+            </div>
+          </div>
+          <!-- Post 4 -->
+          <div class="blog-card fade-up delay-2" data-category="industry">
+            <div style="overflow:hidden"><img src="../assets/images/blog-market-traffic.jpg" alt="City traffic viewed through a windshield" class="blog-card-img"></div>
+            <div class="blog-card-body">
+              <div class="blog-category">Industry</div>
+              <h3 class="blog-title">Why Mobile Car Detailing Is Booming in 2026</h3>
+              <p class="blog-excerpt">The mobile detailing market grew 34% last year. We dig into the driving factors: convenience, EV growth, remote work and changing consumer behaviour.</p>
+              <div class="blog-meta">
+                <span>Damien Cole</span><span class="blog-meta-sep">&bull;</span><span>Sep 22, 2026</span><span class="blog-meta-sep">&bull;</span><span>5 min</span>
+              </div>
+              <a href="blog-details.html" data-post="mobile-boom" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--electric);margin-top:12px">Read More &larr;&#39;</a>
+            </div>
+          </div>
+          <!-- Post 5 -->
+          <div class="blog-card fade-up delay-1" data-category="tips">
+            <div style="overflow:hidden"><img src="../assets/images/blog-interior-dash.jpg" alt="Detailed dashboard and leather trim" class="blog-card-img"></div>
+            <div class="blog-card-body">
+              <div class="blog-category">Tips & Tricks</div>
+              <h3 class="blog-title">10 Interior Detailing Secrets Only Professionals Know</h3>
+              <p class="blog-excerpt">From steam cleaning vents to deodorizing carpet the right way &quot; these are the professional tricks that make interiors look factory fresh.</p>
+              <div class="blog-meta">
+                <span>Alex Kim</span><span class="blog-meta-sep">&bull;</span><span>Sep 18, 2026</span><span class="blog-meta-sep">&bull;</span><span>9 min</span>
+              </div>
+              <a href="blog-details.html" data-post="interior-secrets" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--electric);margin-top:12px">Read More &larr;&#39;</a>
+            </div>
+          </div>
+          <!-- Post 6 -->
+          <div class="blog-card fade-up delay-2" data-category="reviews">
+            <div style="overflow:hidden"><img src="../assets/images/blog-ceramic-mercedes.jpg" alt="Black Mercedes with fresh ceramic coating" class="blog-card-img"></div>
+            <div class="blog-card-body">
+              <div class="blog-category">Reviews</div>
+              <h3 class="blog-title">Gyeon Q2 Ceramic Coating: 12-Month Real-World Review</h3>
+              <p class="blog-excerpt">We applied Gyeon Q2 to a black Mercedes and tracked results over 12 months of daily driving through Chicago winters. Honest verdict inside.</p>
+              <div class="blog-meta">
+                <span>Marcus Webb</span><span class="blog-meta-sep">&bull;</span><span>Sep 10, 2026</span><span class="blog-meta-sep">&bull;</span><span>12 min</span>
+              </div>
+              <a href="blog-details.html" data-post="gyeon-review" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:var(--electric);margin-top:12px">Read More &larr;&#39;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div style="flex:0 0 280px;max-width:280px;position:sticky;top:calc(var(--navbar-h) + 24px)">
+        <!-- Search -->
+        <div class="sidebar-widget sidebar-search fade-right delay-1">
+          <div class="search-head">
+            <div class="search-head-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div>
+              <div class="sidebar-title" style="margin:0">Search Articles</div>
+              <div class="search-sub">Find guides, reviews &amp; pro tips</div>
+            </div>
+          </div>
+          <div class="search-field">
+            <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+            <input type="text" id="blog-search" placeholder="Try &lsquo;ceramic&rsquo; or &lsquo;wax&rsquo;..." aria-label="Search articles">
+            <button type="button" class="search-clear" id="blog-search-clear" aria-label="Clear search" hidden><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="search-tags">
+            <button type="button" data-search-tag="ceramic">Ceramic</button>
+            <button type="button" data-search-tag="wax">Wax</button>
+            <button type="button" data-search-tag="interior">Interior</button>
+          </div>
+          <div class="search-count" id="blog-search-count" hidden></div>
+        </div>
+        <!-- Categories -->
+        <div class="sidebar-widget fade-right delay-2">
+          <div class="sidebar-title">Categories</div>
+          <div>
+            <span class="category-tag">Tips & Tricks (14)</span>
+            <span class="category-tag">How-To (10)</span>
+            <span class="category-tag">Products (8)</span>
+            <span class="category-tag">Industry (7)</span>
+            <span class="category-tag">Reviews (6)</span>
+            <span class="category-tag">EV Care (3)</span>
+          </div>
+        </div>
+        <!-- Popular Posts -->
+        <div class="sidebar-widget fade-right delay-3">
+          <div class="sidebar-title">Popular Articles</div>
+          <div class="popular-post">
+            <img class="popular-post-img" src="../assets/images/svc-foam-windshield.jpg" alt="Thick foam covering a windshield during foam cannon wash">
+            <div>
+              <div class="popular-post-title">The Ultimate Foam Cannon Setup Guide</div>
+              <div class="popular-post-date">Sep 2, 2026 &bull; 8.2k views</div>
+            </div>
+          </div>
+          <div class="popular-post">
+            <img class="popular-post-img" src="../assets/images/svc-ceramic-beading.jpg" alt="Water beading on ceramic coated car paint">
+            <div>
+              <div class="popular-post-title">Ceramic vs PPF vs Wax: Which Is Best?</div>
+              <div class="popular-post-date">Aug 22, 2026 &bull; 6.8k views</div>
+            </div>
+          </div>
+          <div class="popular-post">
+            <img class="popular-post-img" src="../assets/images/svc-interior-porsche.jpg" alt="Freshly detailed luxury car interior seats">
+            <div>
+              <div class="popular-post-title">How to Remove Pet Hair from Car Interior</div>
+              <div class="popular-post-date">Aug 14, 2026 &bull; 5.1k views</div>
+            </div>
+          </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="sidebar-widget fade-right delay-4">
+          <div class="sidebar-title">Newsletter</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:8px">Get weekly detailing tips delivered to your inbox.</p>
+          <form data-validate data-success-msg="You're subscribed! Check your inbox.">
+            <div class="newsletter-form">
+              <input type="email" placeholder="Your email" required>
+              <button type="submit" class="btn-primary-custom" style="padding:10px 16px;font-size:0.82rem;white-space:nowrap">Join</button>
+            </div>
+          </form>
+        </div>
+        <!-- Book CTA -->
+        <div class="sidebar-widget sidebar-book-cta fade-right delay-5" style="background:linear-gradient(135deg,rgba(40,120,255,0.12),rgba(24,28,36,0.95));border-color:rgba(40,120,255,0.2);text-align:center">
+          <div class="book-cta-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h4>Ready to Book?</h4>
+          <p>Get professional detailing at your door today.</p>
+          <a href="customer-dashboard.html" class="btn-primary-custom" style="width:100%;justify-content:center;font-size:0.85rem">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &quot;&quot;&quot; SECTION 4: SEASONAL CAR CARE CHECKLISTS &quot;&quot;&quot; -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:48px">
+      <div class="section-badge">Seasonal Field Guides</div>
+      <h2 class="section-title">Year-Round <span class="text-electric">Automotive Protection</span></h2>
+      <p class="section-subtitle">Environmental contaminants change each season. Here is what our master detailers recommend for each quarter.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+      <div class="card-glass fade-up delay-1" style="padding:28px">
+        <div style="font-size:2rem;color:var(--success);margin-bottom:16px"><i class="fa-solid fa-seedling"></i></div>
+        <div style="font-size:0.75rem;font-weight:700;color:var(--electric);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Spring Strategy</div>
+        <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:12px">Pollen &amp; Sap Decontamination</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Pollen grains contain acidic enzymes that etch into warm clearcoats. Weekly two-bucket rinses and synthetic clay bar treatments prevent yellow staining.</p>
+      </div>
+      <div class="card-glass fade-up delay-2" style="padding:28px">
+        <div style="font-size:2rem;color:var(--warning);margin-bottom:16px"><i class="fa-solid fa-sun"></i></div>
+        <div style="font-size:0.75rem;font-weight:700;color:var(--electric);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Summer Strategy</div>
+        <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:12px">UV Shielding &amp; Bug Splatter</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Bake-in temperatures dry dead insects onto front bumpers, degrading paint. Apply ceramic quartz spray sealant and conditioned leather UV block.</p>
+      </div>
+      <div class="card-glass fade-up delay-3" style="padding:28px">
+        <div style="font-size:2rem;color:var(--warning);margin-bottom:16px"><i class="fa-solid fa-leaf"></i></div>
+        <div style="font-size:0.75rem;font-weight:700;color:var(--electric);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Autumn Strategy</div>
+        <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:12px">Rain Repellency &amp; Trim Care</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Prepare wiper channels, cowl drains, and windshield glass with hydrophobic fluoropolymer coatings to ensure crystal clear night rain visibility.</p>
+      </div>
+      <div class="card-glass fade-up delay-4" style="padding:28px">
+        <div style="font-size:2rem;color:var(--electric);margin-bottom:16px"><i class="fa-solid fa-snowflake"></i></div>
+        <div style="font-size:0.75rem;font-weight:700;color:var(--electric);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Winter Strategy</div>
+        <h3 style="font-size:1.05rem;font-weight:800;margin-bottom:12px">Road Salt &amp; Brine Neutralization</h3>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Calcium chloride accelerates chassis corrosion. Underbody wash blasts and polymer sealants create a sacrificial barrier against road salt damage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &quot;&quot;&quot; SECTION 5: MASTER DETAILER PRO TIPS &quot;&quot;&quot; -->
+<section class="section">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:48px">
+      <div class="section-badge">Master Pro Tips</div>
+      <h2 class="section-title">Common Myths <span class="text-electric">&amp; Pro Rules</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="card-service fade-up delay-1">
+        <div class="card-icon" style="color:var(--warning)"><i class="fa-solid fa-sun"></i></div>
+        <h4 style="font-weight:700;margin-bottom:8px">Never Wash in Direct Sunlight</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Water drops act like magnifying lenses, heating mineral deposits that chemically bake into your clearcoat. Always wash in shade or under canopy.</p>
+      </div>
+      <div class="card-service fade-up delay-2">
+        <div class="card-icon" style="color:var(--electric)"><i class="fa-solid fa-bucket"></i></div>
+        <h4 style="font-weight:700;margin-bottom:8px">The Two-Bucket Grit Guard Rule</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">One bucket holds clean suds, the second holds rinse water with a grit separator. This traps abrasive grit at the bottom, eliminating 95% of swirl marks.</p>
+      </div>
+      <div class="card-service fade-up delay-3">
+        <div class="card-icon" style="color:var(--success)"><i class="fa-solid fa-arrow-down-long"></i></div>
+        <h4 style="font-weight:700;margin-bottom:8px">Top-to-Bottom Flow Sequence</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">The dirtiest parts of any car are the rocker panels and wheels. Clean upper glass and hoods first so grit doesn't migrate upwards onto delicate paint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- &quot;&quot;&quot; SECTION 6: FREE MAINTENANCE GUIDE & CTA &quot;&quot;&quot; -->
+<section class="section cta-section">
+  <div class="container-custom cta-wrap" style="text-align:center;position:relative;z-index:1">
+    <h2 class="section-title fade-up" style="max-width:600px;margin:0 auto 20px">Ready to Experience <span class="text-electric">Showroom Finish?</span></h2>
+    <p class="section-subtitle fade-up" style="margin:0 auto 32px">Skip the hassle and equipment expense. Our master-certified mobile detailers bring everything to your home or office driveway.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="fade-up delay-1">
+      <a href="customer-dashboard.html" class="btn-primary-custom" style="padding:14px 40px;font-size:1rem"><i class="fa-solid fa-calendar-check"></i> Book Your Detail</a>
+      <a href="services.html" class="btn-outline-custom" style="padding:14px 40px;font-size:1rem;color:white;border-color:rgba(255,255,255,0.55)"><i class="fa-solid fa-list-check"></i> View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container-custom">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:48px;flex-wrap:wrap">
+      <div>
+        <div class="footer-logo">
+          <a href="../index.html" class="navbar-logo" style="margin-bottom:12px;display:inline-flex">
+            <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+            <span class="navbar-logo-text">Car<span>Gloss</span></span>
+          </a>
+        </div>
+        <p class="footer-desc">Premium mobile car detailing delivered to your doorstep. Certified technicians, professional products, and guaranteed results.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Exterior Wash</a></li>
+          <li><a href="service-details.html">Interior Cleaning</a></li>
+          <li><a href="service-details.html">Full Detailing</a></li>
+          <li><a href="service-details.html">Paint Polishing</a></li>
+          <li><a href="service-details.html">Ceramic Coating</a></li>
+          <li><a href="service-details.html">Fleet Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Account</div>
+        <ul class="footer-links">
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="login.html#register">Register</a></li>
+          <li><a href="customer-dashboard.html">Dashboard</a></li>
+          <li><a href="customer-history.html">My Bookings</a></li>
+          <li><a href="customer-garage.html">My Vehicles</a></li>
+          <li><a href="#">Refer a Friend</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Get the App</div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px">Book, track and manage your detailing sessions from your phone.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-apple" style="font-size:1.5rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Download on</div><div style="font-size:0.85rem;font-weight:700">App Store</div></div>
+          </a>
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-google-play" style="font-size:1.3rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Get it on</div><div style="font-size:0.85rem;font-weight:700">Google Play</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CarGloss Inc. All rights reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Privacy Policy</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Terms of Service</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="../assets/js/main.js"></script>
+<script>
+  // Sidebar live search — filters blog cards by title/excerpt, works with category filter.
+  (function () {
+    var input = document.getElementById('blog-search');
+    if (!input) return;
+    var clearBtn = document.getElementById('blog-search-clear');
+    var count = document.getElementById('blog-search-count');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.blog-card[data-category]'));
+    function activeCat() {
+      var b = document.querySelector('[data-filter-btn].active');
+      return b ? b.dataset.filterBtn : 'all';
+    }
+    function apply() {
+      var q = input.value.trim().toLowerCase();
+      var cat = activeCat();
+      var shown = 0;
+      cards.forEach(function (card) {
+        var okCat = cat === 'all' || card.dataset.category === cat;
+        var text = (card.textContent || '').toLowerCase();
+        var okQ = !q || text.indexOf(q) !== -1;
+        var show = okCat && okQ;
+        card.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      if (clearBtn) clearBtn.hidden = !q;
+      if (count) {
+        if (q) { count.hidden = false; count.textContent = shown + (shown === 1 ? ' article found' : ' articles found'); }
+        else count.hidden = true;
+      }
+      document.querySelectorAll('[data-search-tag]').forEach(function (t) {
+        t.classList.toggle('active', !!q && t.dataset.searchTag === q);
+      });
+    }
+    input.addEventListener('input', apply);
+    if (clearBtn) clearBtn.addEventListener('click', function () { input.value = ''; apply(); input.focus(); });
+    document.querySelectorAll('[data-search-tag]').forEach(function (t) {
+      t.addEventListener('click', function () { input.value = t.dataset.searchTag; apply(); });
+    });
+    document.querySelectorAll('[data-filter-btn]').forEach(function (b) {
+      b.addEventListener('click', function () { setTimeout(apply, 0); });
+    });
+  })();
+</script>
+</body>
+</html>
+

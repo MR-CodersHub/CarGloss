@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your saved vehicles, paint protection records, and detailing history in the CarGloss Digital Garage.">
+  <title>My Digital Garage &ndash; CarGloss Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="customer" data-page="garage">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-warehouse"></i> Vehicle Fleet Profile</div>
+        <h1 class="dash-page-title">My Digital Garage</h1>
+        <p class="dash-page-subtitle">Keep track of paint protection films, ceramic warranty records, and last detailing timestamps per vehicle.</p>
+      </div>
+      <div class="dash-head-actions">
+        <a href="#add-vehicle-card" class="btn-outline-custom" style="padding:10px 18px;font-size:0.85rem"><i class="fa-solid fa-plus"></i> Add New Vehicle</a>
+        <a href="customer-booking.html" class="btn-primary-custom" style="padding:10px 20px;font-size:0.85rem"><i class="fa-solid fa-calendar-plus"></i> Book Detail</a>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-auto">
+      <!-- Vehicle 1: Primary Sedan -->
+      <div class="vehicle-card selected fade-up delay-1">
+        <div class="vehicle-icon"><i class="fa-solid fa-car-side"></i></div>
+        <div style="flex:1">
+          <div class="veh-head" style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+            <div>
+              <div class="vehicle-make">BMW 3 Series &bull; 330i M Sport</div>
+              <div class="vehicle-model">2021 &bull; Mineral White Metallic &bull; Black Dakota Leather</div>
+            </div>
+            <span class="tag tag-blue" style="font-size:0.7rem">Primary Vehicle</span>
+          </div>
+          <div class="vehicle-plate" style="margin-top:10px"><i class="fa-solid fa-id-card"></i> License: IL &bull; 4MX8922 &bull; VIN: ...7892</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">
+            <div>
+              <div style="font-size:0.72rem;color:var(--text-muted)">Last Full Detail</div>
+              <div style="font-size:0.85rem;font-weight:700">Oct 1, 2026 (12 Days ago)</div>
+            </div>
+            <div>
+              <div style="font-size:0.72rem;color:var(--text-muted)">Paint Coating</div>
+              <div style="font-size:0.85rem;font-weight:700;color:var(--electric)">Gtechniq Crystal Serum</div>
+            </div>
+          </div>
+          <div class="veh-actions" style="display:flex;gap:10px;margin-top:16px">
+            <a href="customer-booking.html" class="btn-primary-custom" style="padding:8px 16px;font-size:0.8rem;flex:1;justify-content:center">Quick Book</a>
+            <button class="btn-outline-custom" style="padding:8px 14px;font-size:0.8rem" onclick="alert('Vehicle service log exported to PDF.')"><i class="fa-solid fa-clock-rotate-left"></i> History</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vehicle 2: Electric SUV -->
+      <div class="vehicle-card fade-up delay-2">
+        <div class="vehicle-icon" style="color:var(--success)"><i class="fa-solid fa-bolt"></i></div>
+        <div style="flex:1">
+          <div class="veh-head" style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
+            <div>
+              <div class="vehicle-make">Tesla Model Y &bull; Long Range AWD</div>
+              <div class="vehicle-model">2023 &bull; Pearl White Multi-Coat &bull; All-Weather Package</div>
+            </div>
+            <span class="tag tag-green" style="font-size:0.7rem">Zero-Emission EV</span>
+          </div>
+          <div class="vehicle-plate" style="margin-top:10px"><i class="fa-solid fa-id-card"></i> License: IL &bull; 7EV2024 &bull; Charge Port Inspected</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">
+            <div>
+              <div style="font-size:0.72rem;color:var(--text-muted)">Last Exterior Wash</div>
+              <div style="font-size:0.85rem;font-weight:700">Sep 15, 2026</div>
+            </div>
+            <div>
+              <div style="font-size:0.72rem;color:var(--text-muted)">Glass Hydrophobic Coat</div>
+              <div style="font-size:0.85rem;font-weight:700;color:var(--success)">Active (Valid thru Nov)</div>
+            </div>
+          </div>
+          <div class="veh-actions" style="display:flex;gap:10px;margin-top:16px">
+            <a href="customer-booking.html" class="btn-primary-custom" style="padding:8px 16px;font-size:0.8rem;flex:1;justify-content:center">Quick Book</a>
+            <button class="btn-outline-custom" style="padding:8px 14px;font-size:0.8rem" onclick="alert('Vehicle service log exported to PDF.')"><i class="fa-solid fa-clock-rotate-left"></i> History</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add New Vehicle Form Card -->
+      <div class="booking-form-wrap fade-up delay-3" id="add-vehicle-card" style="padding:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div class="card-icon" style="margin:0;width:38px;height:38px;font-size:1rem"><i class="fa-solid fa-plus text-electric"></i></div>
+          <div>
+            <h4 style="font-weight:700;font-size:0.95rem;margin:0">Register Another Vehicle</h4>
+            <span style="font-size:0.75rem;color:var(--text-muted)">SUV, Truck, Coupe, or Motorcycle</span>
+          </div>
+        </div>
+        <form data-validate data-success-msg="Vehicle added to your digital garage!">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+            <input type="text" class="form-control-custom" placeholder="Make (e.g. Porsche)" style="padding:8px 12px;font-size:0.82rem" required>
+            <input type="text" class="form-control-custom" placeholder="Model (e.g. 911 Carrera)" style="padding:8px 12px;font-size:0.82rem" required>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+            <input type="number" class="form-control-custom" placeholder="Year (e.g. 2024)" style="padding:8px 12px;font-size:0.82rem" required>
+            <input type="text" class="form-control-custom" placeholder="Color &amp; Finish" style="padding:8px 12px;font-size:0.82rem" required>
+          </div>
+          <div style="margin-bottom:12px">
+            <input type="text" class="form-control-custom" placeholder="License Plate &amp; State" style="padding:8px 12px;font-size:0.82rem" required>
+          </div>
+          <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;padding:10px;font-size:0.82rem">
+            <i class="fa-solid fa-floppy-disk"></i> Save Vehicle to Garage
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

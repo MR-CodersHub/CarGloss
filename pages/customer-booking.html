@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your next CarGloss mobile detailing session. Choose a date, arrival window, service package, and add-ons.">
+  <title>Booking Calendar &ndash; CarGloss Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="customer" data-page="booking">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-calendar-check"></i> Instant Booking</div>
+        <h1 class="dash-page-title">Book Mobile Detail &bull; Pick Date &amp; Time</h1>
+        <p class="dash-page-subtitle">Select your preferred date, morning or afternoon window, and package add-ons. We confirm your slot instantly.</p>
+      </div>
+      <div class="dash-head-actions">
+        <a href="customer-garage.html" class="btn-outline-custom" style="padding:10px 18px;font-size:0.85rem"><i class="fa-solid fa-warehouse"></i> My Garage</a>
+        <a href="customer-history.html" class="btn-outline-custom" style="padding:10px 18px;font-size:0.85rem"><i class="fa-solid fa-receipt"></i> My Bookings</a>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-booking">
+      <!-- Calendar Picker (rendered by main.js) -->
+      <div class="calendar-wrapper fade-left" id="booking-calendar"></div>
+
+      <!-- Time Slot Selection & Package Booking Form -->
+      <div class="chart-wrapper fade-right">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-regular fa-clock text-electric"></i> Select Arrival Time</div>
+          <span class="tag tag-green">6 Slots Open</span>
+        </div>
+        <div class="time-slot-grid" style="margin-bottom:20px">
+          <div class="time-slot">08:00 AM</div>
+          <div class="time-slot">09:30 AM</div>
+          <div class="time-slot selected">11:00 AM</div>
+          <div class="time-slot">01:00 PM</div>
+          <div class="time-slot unavailable" title="Booked">02:30 PM (Full)</div>
+          <div class="time-slot">04:00 PM</div>
+          <div class="time-slot">05:30 PM</div>
+          <div class="time-slot">07:00 PM</div>
+        </div>
+
+        <form data-validate data-success-msg="Appointment successfully reserved! Confirmation code sent via SMS.">
+          <input type="hidden" name="timeslot" value="11:00 AM">
+          <input type="hidden" name="booking-date" value="">
+          <div class="dash-grid dash-grid-2" style="gap:14px;margin-bottom:14px">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Target Vehicle</label>
+              <select class="form-control-custom" required>
+                <option>BMW 3 Series &bull; IL 4MX8922</option>
+                <option>Tesla Model Y &bull; IL 7EV2024</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Service Package</label>
+              <select class="form-control-custom" required>
+                <option>Express Exterior Wash &ndash; $49</option>
+                <option>Interior Deep Clean &ndash; $79</option>
+                <option selected>Full Detail Signature &ndash; $149</option>
+                <option>Elite Multi-Stage Polish &ndash; $349</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:14px">
+            <label class="form-label">Optional Add-Ons</label>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <label style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" style="accent-color:var(--electric)" checked> Clay Bar Paint Decon (+$35)
+              </label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" style="accent-color:var(--electric)"> Engine Bay Detailing (+$45)
+              </label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" style="accent-color:var(--electric)"> Pet Hair Deep Removal (+$30)
+              </label>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label class="form-label">Parking Access Notes</label>
+            <input type="text" class="form-control-custom" placeholder="e.g. Park in visitor bay #12, key in lockbox">
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:var(--bg-3);border-radius:var(--radius-sm);margin-bottom:16px">
+            <span style="font-size:0.85rem;color:var(--text-muted)">Estimated Subtotal:</span>
+            <span style="font-size:1.15rem;font-weight:800;color:var(--electric)">$184.00</span>
+          </div>
+          <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;padding:12px">
+            <i class="fa-solid fa-calendar-check"></i> Confirm Reservation &amp; Dispatch Slot
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

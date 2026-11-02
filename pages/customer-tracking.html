@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your CarGloss mobile detailing van in real time, follow job progress, and contact your assigned technician.">
+  <title>Live Van Tracking &ndash; CarGloss Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="customer" data-page="tracking">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-satellite"></i> Real-Time Telemetry</div>
+        <h1 class="dash-page-title">Live Mobile Van Tracker &amp; Progress</h1>
+        <p class="dash-page-subtitle">Watch your certified technician's arrival window and monitor each detailing step as it happens.</p>
+      </div>
+      <div class="dash-head-actions">
+        <a href="customer-booking.html" class="btn-outline-custom" style="padding:10px 18px;font-size:0.85rem"><i class="fa-solid fa-calendar-days"></i> Manage Booking</a>
+        <a href="customer-dashboard.html" class="btn-primary-custom" style="padding:10px 20px;font-size:0.85rem"><i class="fa-solid fa-gauge-high"></i> Overview</a>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-split">
+      <!-- Live Map Simulation -->
+      <div class="chart-wrapper fade-left">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-location-crosshairs text-electric"></i> GPS Fleet Telemetry &bull; Van #08</div>
+          <span class="tag tag-blue"><i class="fa-solid fa-circle-dot"></i> Live Signal</span>
+        </div>
+        <div class="track-map-box">
+          <div class="track-map-grid"></div>
+          <!-- Road routes -->
+          <div class="track-map-line" style="top:48%;left:10%;width:80%;height:3px"></div>
+          <div class="track-map-line" style="top:20%;bottom:20%;left:52%;width:3px;opacity:0.6"></div>
+
+          <!-- Moving Van Marker -->
+          <div style="position:absolute;top:45%;left:48%;transform:translate(-50%,-50%);z-index:3;text-align:center">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--electric-fill);color:white;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px var(--electric);animation:pulse-online 2s infinite">
+              <i class="fa-solid fa-van-shuttle"></i>
+            </div>
+            <div class="pin-label" style="background:var(--midnight);border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:0.7rem;font-weight:700;margin-top:4px;white-space:nowrap;color:white">
+              Jake T. (Van #08)
+            </div>
+          </div>
+
+          <!-- Customer Destination Pin -->
+          <div class="pin-dest" style="position:absolute;top:45%;left:82%;transform:translate(-50%,-50%);z-index:2;text-align:center">
+            <div style="font-size:1.8rem;color:var(--success)"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="pin-label" style="background:var(--midnight);border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:0.7rem;font-weight:700;color:#34D399;white-space:nowrap">
+              Your Driveway
+            </div>
+          </div>
+
+          <div class="eta-pill">
+            <i class="fa-solid fa-stopwatch text-electric"></i> Estimated Arrival: ~12 Mins
+          </div>
+        </div>
+
+        <!-- Technician Info Card -->
+        <div class="tech-card" style="display:flex;align-items:center;gap:16px;margin-top:20px;padding:16px;background:var(--gradient-card);border:1px solid var(--glass-border);border-radius:var(--radius)">
+          <div class="avatar avatar-md" style="background:linear-gradient(135deg,var(--electric-fill),#1d4ed8);color:white;font-weight:700">JT</div>
+          <div>
+            <div style="font-weight:700;font-size:0.95rem">Jake Torres &bull; Master Detailer</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)"><i class="fa-solid fa-star" style="color:var(--warning)"></i> 4.98 Rating (1,420+ details) &bull; IDA Certified</div>
+          </div>
+          <div class="tech-card-actions" style="margin-left:auto;display:flex;gap:10px">
+            <a href="tel:+18005552273" class="btn-outline-custom" style="padding:8px 14px;font-size:0.8rem"><i class="fa-solid fa-phone"></i> Call</a>
+            <button class="btn-primary-custom" style="padding:8px 14px;font-size:0.8rem" onclick="alert('Connecting to Jake Torres via CarGloss Secure Dispatch Chat...')"><i class="fa-solid fa-comment-dots"></i> Message</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Booking Pipeline Card -->
+      <div class="invoice-card fade-right">
+        <div class="invoice-header">
+          <div class="veh-head" style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+            <div>
+              <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--electric);font-weight:700">Order #CG-4827</div>
+              <h3 style="font-weight:800;font-size:1.15rem;margin:4px 0">Full Detail Package + Ceramic Boost</h3>
+            </div>
+            <span class="tag tag-blue"><i class="fa-solid fa-van-shuttle"></i> En Route</span>
+          </div>
+        </div>
+        <div class="invoice-body">
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+            <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:12px;font-size:0.85rem">
+              <span style="color:var(--text-muted)"><i class="fa-solid fa-car text-electric"></i> Vehicle</span>
+              <span style="font-weight:600">2021 BMW 3 Series (M Sport)</span>
+            </div>
+            <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:12px;font-size:0.85rem">
+              <span style="color:var(--text-muted)"><i class="fa-solid fa-calendar text-electric"></i> Scheduled Window</span>
+              <span style="font-weight:600">Tomorrow &bull; 10:00 AM &ndash; 12:30 PM</span>
+            </div>
+            <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:12px;font-size:0.85rem">
+              <span style="color:var(--text-muted)"><i class="fa-solid fa-house-chimney text-electric"></i> Service Location</span>
+              <span style="font-weight:600">2847 N Clark St (Driveway)</span>
+            </div>
+            <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:12px;font-size:0.85rem">
+              <span style="color:var(--text-muted)"><i class="fa-solid fa-faucet-drip text-electric"></i> Water &amp; Power</span>
+              <span style="font-weight:600;color:var(--success)">Supplied by CarGloss Van</span>
+            </div>
+          </div>
+
+          <!-- 5-Step Pipeline Progress -->
+          <div style="margin-top:10px">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:12px">Dispatch Progress</div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="text-align:center;flex:1">
+                <div style="width:26px;height:26px;border-radius:50%;background:var(--electric-fill);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 4px;font-size:0.7rem"><i class="fa-solid fa-check"></i></div>
+                <div style="font-size:0.68rem;color:var(--electric);font-weight:700">Booked</div>
+              </div>
+              <div style="height:2px;flex:1;background:var(--electric)"></div>
+              <div style="text-align:center;flex:1">
+                <div style="width:26px;height:26px;border-radius:50%;background:var(--electric-fill);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 4px;font-size:0.7rem"><i class="fa-solid fa-check"></i></div>
+                <div style="font-size:0.68rem;color:var(--electric);font-weight:700">Confirmed</div>
+              </div>
+              <div style="height:2px;flex:1;background:var(--electric)"></div>
+              <div style="text-align:center;flex:1">
+                <div style="width:26px;height:26px;border-radius:50%;background:rgba(40,120,255,0.25);border:2px solid var(--electric);color:var(--electric);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;font-size:0.7rem"><i class="fa-solid fa-van-shuttle"></i></div>
+                <div style="font-size:0.68rem;color:var(--electric);font-weight:700">En Route</div>
+              </div>
+              <div style="height:2px;flex:1;background:var(--text-muted)"></div>
+              <div style="text-align:center;flex:1">
+                <div style="width:26px;height:26px;border-radius:50%;background:var(--glass);border:1px solid var(--border);color:var(--text-muted);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;font-size:0.7rem"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+                <div style="font-size:0.68rem;color:var(--text-muted)">Servicing</div>
+              </div>
+              <div style="height:2px;flex:1;background:var(--text-muted)"></div>
+              <div style="text-align:center;flex:1">
+                <div style="width:26px;height:26px;border-radius:50%;background:var(--glass);border:1px solid var(--border);color:var(--text-muted);display:flex;align-items:center;justify-content:center;margin:0 auto 4px;font-size:0.7rem"><i class="fa-solid fa-flag-checkered"></i></div>
+                <div style="font-size:0.68rem;color:var(--text-muted)">Done</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-head-actions" style="margin-top:22px">
+            <a href="customer-history.html" class="btn-outline-custom" style="padding:9px 18px;font-size:0.82rem"><i class="fa-solid fa-receipt"></i> Invoice History</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

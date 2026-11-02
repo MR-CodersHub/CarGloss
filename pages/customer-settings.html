@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your CarGloss rewards balance, saved payment methods, and SMS dispatch notification preferences.">
+  <title>Rewards &amp; Settings &ndash; CarGloss Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="customer" data-page="settings">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-sliders"></i> Membership Management</div>
+        <h1 class="dash-page-title">Rewards, Cards &amp; Dispatch Settings</h1>
+        <p class="dash-page-subtitle">Configure your payment methods, SMS dispatch notifications, and redeem points for free add-ons.</p>
+      </div>
+      <div class="dash-head-actions">
+        <a href="customer-dashboard.html" class="btn-outline-custom" style="padding:10px 18px;font-size:0.85rem"><i class="fa-solid fa-gauge-high"></i> Overview</a>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-2">
+      <!-- Rewards & Payment Card -->
+      <div class="settings-card fade-left" style="margin-bottom:0">
+        <div class="rewards-head" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px">
+          <div style="font-weight:700;font-size:1.05rem"><i class="fa-solid fa-gem text-electric"></i> CarGloss Rewards Tier</div>
+          <span class="tag tag-blue">Gold Status</span>
+        </div>
+        <div style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:20px">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+            <span style="font-size:0.85rem;color:var(--text-muted)">Available Point Balance</span>
+            <span style="font-weight:800;color:var(--electric);font-size:1.1rem">2,400 pts ($24.00 value)</span>
+          </div>
+          <!-- Progress bar -->
+          <div style="height:8px;background:var(--border);border-radius:var(--radius-full);overflow:hidden;margin-bottom:8px">
+            <div style="height:100%;width:80%;background:var(--electric)"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;font-size:0.75rem;color:var(--text-muted)">
+            <span>Gold Tier (2,000)</span>
+            <span>Platinum VIP (3,000) &bull; 600 pts to next level</span>
+          </div>
+        </div>
+
+        <h4 style="font-weight:700;font-size:0.95rem;margin-bottom:12px"><i class="fa-solid fa-credit-card"></i> Saved Payment Methods</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="pay-row" style="display:flex;align-items:center;gap:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px">
+            <i class="fa-brands fa-cc-visa" style="font-size:1.4rem;color:var(--electric)"></i>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:0.85rem;font-weight:700">Visa ending in &bull;&bull;&bull;&bull; 4242</div>
+              <div style="font-size:0.75rem;color:var(--text-muted)">Expires 09/2028 &bull; Billing ZIP 60657</div>
+            </div>
+            <span class="tag tag-blue" style="font-size:0.65rem">Default</span>
+          </div>
+          <div class="pay-row" style="display:flex;align-items:center;gap:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px">
+            <i class="fa-brands fa-apple-pay" style="font-size:1.6rem;color:var(--text)"></i>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:0.85rem;font-weight:700">Apple Pay Digital Wallet</div>
+              <div style="font-size:0.75rem;color:var(--text-muted)">Connected &bull; 1-Tap Authorization</div>
+            </div>
+            <button class="btn-outline-custom" style="padding:4px 10px;font-size:0.75rem">Manage</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification & Dispatch Preferences -->
+      <div class="settings-card fade-right" style="margin-bottom:0">
+        <div style="font-weight:700;font-size:1.05rem;margin-bottom:16px"><i class="fa-solid fa-bell text-electric"></i> Dispatch Communication Preferences</div>
+
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Live SMS Van Arrival Alerts</div>
+            <div class="settings-desc">Receive real-time 15-minute and 5-minute arrival notifications</div>
+          </div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Technician Direct Chat</div>
+            <div class="settings-desc">Allow assigned technician to send driveway inspection photos</div>
+          </div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Digital Invoices by Email</div>
+            <div class="settings-desc">Automatically email PDF receipts immediately upon job sign-off</div>
+          </div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+
+        <div class="settings-row" style="border-bottom:none">
+          <div>
+            <div class="settings-label">Seasonal Weather Detail Reminders</div>
+            <div class="settings-desc">Alerts before heavy rain, road salt season, or extreme UV days</div>
+          </div>
+          <label class="toggle-switch"><input type="checkbox"><span class="toggle-slider"></span></label>
+        </div>
+
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:flex-end">
+          <button class="btn-primary-custom" style="padding:10px 22px;font-size:0.85rem" onclick="alert('Notification preferences updated!')">
+            <i class="fa-solid fa-check"></i> Save Preferences
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

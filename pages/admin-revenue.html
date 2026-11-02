@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss revenue analytics &ndash; 12-month pacing, service mix breakdown, and monthly operations profit margin.">
+  <title>Revenue Analytics &ndash; CarGloss Admin Console</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="admin" data-page="revenue">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-chart-column"></i> Financial Intelligence</div>
+        <h1 class="dash-page-title">Revenue Trends &amp; Service Breakdown</h1>
+        <p class="dash-page-subtitle">Year-over-year revenue pacing, monthly recurring mobile subscriptions, and highest-margin packages.</p>
+      </div>
+      <div class="dash-head-actions">
+        <button class="btn-outline-custom" style="padding:10px 18px;font-size:0.82rem" onclick="alert('Exporting revenue report CSV...')"><i class="fa-solid fa-file-arrow-down"></i> Export Report</button>
+        <a href="admin-dashboard.html" class="btn-primary-custom" style="padding:10px 20px;font-size:0.82rem"><i class="fa-solid fa-chart-line"></i> Operations KPIs</a>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-split">
+      <!-- Monthly Revenue Bar Chart -->
+      <div class="chart-wrapper fade-left">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-chart-line text-electric"></i> 12-Month Pacing ($k)</div>
+          <span class="tag tag-blue">YTD Total: $448,700</span>
+        </div>
+        <div class="chart-axis-row" style="display:flex;gap:16px;align-items:flex-end">
+          <div style="display:flex;flex-direction:column;justify-content:space-between;height:160px;flex-shrink:0;font-size:0.68rem;color:var(--text-muted)">
+            <div>$60k</div><div>$45k</div><div>$30k</div><div>$15k</div><div>$0</div>
+          </div>
+          <div class="rev-chart-scroll" style="flex:1;min-width:0">
+            <div class="bar-chart" style="height:160px">
+              <div class="bar-chart-bar" style="height:50%" title="Nov: $30k"></div>
+              <div class="bar-chart-bar" style="height:55%" title="Dec: $33k"></div>
+              <div class="bar-chart-bar" style="height:42%" title="Jan: $25k"></div>
+              <div class="bar-chart-bar" style="height:60%" title="Feb: $36k"></div>
+              <div class="bar-chart-bar" style="height:76%" title="Mar: $46k"></div>
+              <div class="bar-chart-bar" style="height:65%" title="Apr: $39k"></div>
+              <div class="bar-chart-bar" style="height:70%" title="May: $42k"></div>
+              <div class="bar-chart-bar" style="height:85%" title="Jun: $51k"></div>
+              <div class="bar-chart-bar" style="height:74%" title="Jul: $44k"></div>
+              <div class="bar-chart-bar" style="height:90%" title="Aug: $54k"></div>
+              <div class="bar-chart-bar" style="height:82%" title="Sep: $49k"></div>
+              <div class="bar-chart-bar" style="height:92%;background:var(--electric)" title="Oct MTD: $48.2k"></div>
+            </div>
+            <div class="bar-chart-labels" style="margin-top:8px">
+              <div class="bar-chart-label">Nov</div><div class="bar-chart-label">Dec</div><div class="bar-chart-label">Jan</div><div class="bar-chart-label">Feb</div><div class="bar-chart-label">Mar</div><div class="bar-chart-label">Apr</div><div class="bar-chart-label">May</div><div class="bar-chart-label">Jun</div><div class="bar-chart-label">Jul</div><div class="bar-chart-label">Aug</div><div class="bar-chart-label">Sep</div><div class="bar-chart-label" style="color:var(--electric);font-weight:700">Oct</div>
+            </div>
+          </div>
+        </div>
+        <div class="revenue-sum-row" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:16px;margin-top:16px;border-top:1px solid var(--border)">
+          <div><div style="font-size:0.75rem;color:var(--text-muted)">Current Month</div><div style="font-weight:800;font-size:1.1rem;color:var(--electric)">$48,200</div></div>
+          <div><div style="font-size:0.75rem;color:var(--text-muted)">Avg Ticket Price</div><div style="font-weight:800;font-size:1.1rem;color:var(--success)">$169.72</div></div>
+          <div><div style="font-size:0.75rem;color:var(--text-muted)">Recurring Subscriptions</div><div style="font-weight:800;font-size:1.1rem;color:var(--electric)">314 Members</div></div>
+        </div>
+      </div>
+
+      <!-- Service Mix Breakdown -->
+      <div class="chart-wrapper fade-right">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-chart-pie text-electric"></i> Service Revenue Mix</div>
+          <span class="tag">October</span>
+        </div>
+        <div>
+          <div class="revenue-row">
+            <span><i class="fa-solid fa-circle text-electric" style="font-size:0.6rem"></i> Full Detail Signature</span>
+            <span style="font-weight:700">$21,158 (44%)</span>
+          </div>
+          <div class="revenue-row">
+            <span><i class="fa-solid fa-circle" style="color:var(--success);font-size:0.6rem"></i> Ceramic 9H Coating</span>
+            <span style="font-weight:700">$9,588 (20%)</span>
+          </div>
+          <div class="revenue-row">
+            <span><i class="fa-solid fa-circle" style="color:var(--warning);font-size:0.6rem"></i> Exterior Washes</span>
+            <span style="font-weight:700">$8,172 (17%)</span>
+          </div>
+          <div class="revenue-row">
+            <span><i class="fa-solid fa-circle" style="color:var(--purple);font-size:0.6rem"></i> Interior Deep Steam</span>
+            <span style="font-weight:700">$6,258 (13%)</span>
+          </div>
+          <div class="revenue-row" style="border-bottom:none">
+            <span><i class="fa-solid fa-circle" style="color:var(--electric);font-size:0.6rem"></i> Commercial Fleet Contracts</span>
+            <span style="font-weight:700">$3,024 (6%)</span>
+          </div>
+        </div>
+        <div style="background:var(--bg-3);padding:12px;border-radius:var(--radius-sm);margin-top:16px;text-align:center">
+          <span style="font-size:0.8rem;color:var(--text-muted)">Monthly Operations Profit Margin: <strong style="color:var(--success)">68.2%</strong></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

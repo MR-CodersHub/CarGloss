@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss Customer Dashboard &ndash; Manage your vehicles, track mobile detailing vans in real-time, view past invoices, and book on-demand sessions.">
+  <title>Customer Overview &ndash; CarGloss Dashboard</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="customer" data-page="overview">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-gauge-high"></i> Customer Dashboard</div>
+        <h1 class="dash-page-title">Welcome back, Marcus</h1>
+        <p class="dash-page-subtitle"><i class="fa-solid fa-crown text-electric"></i> Gold Tier Member &bull; <i class="fa-solid fa-location-dot text-electric"></i> 2847 N Clark St, Chicago, IL &bull; 2 vehicles enrolled</p>
+      </div>
+      <div class="dash-head-actions">
+        <a href="customer-garage.html" class="btn-outline-custom" style="padding:10px 18px;font-size:0.85rem"><i class="fa-solid fa-warehouse"></i> My Garage</a>
+        <a href="customer-booking.html" class="btn-primary-custom" style="padding:10px 22px;font-size:0.85rem"><i class="fa-solid fa-calendar-plus"></i> New Reservation</a>
+      </div>
+    </div>
+
+    <!-- Metric KPI Cards -->
+    <div class="dash-grid dash-grid-auto">
+      <div class="stat-card fade-up delay-1">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--electric)"><i class="fa-solid fa-car"></i></div>
+          <span class="tag tag-green" style="font-size:0.7rem">2 Active</span>
+        </div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">Saved Vehicles in Garage</div>
+        <div class="stat-change up" style="font-size:0.78rem"><i class="fa-solid fa-check"></i> BMW 3 Series &amp; Tesla Model Y</div>
+      </div>
+      <div class="stat-card fade-up delay-2">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--warning)"><i class="fa-solid fa-clock"></i></div>
+          <span class="tag tag-orange" style="font-size:0.7rem">Tomorrow 10:00 AM</span>
+        </div>
+        <div class="stat-value">1</div>
+        <div class="stat-label">Active Mobile Booking</div>
+        <div class="stat-change up" style="font-size:0.78rem"><i class="fa-solid fa-circle-dot text-electric"></i> Van En Route #CG-4827</div>
+      </div>
+      <div class="stat-card fade-up delay-3">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--electric)"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <span class="tag" style="font-size:0.7rem">All-Time</span>
+        </div>
+        <div class="stat-value">14</div>
+        <div class="stat-label">Total Detailing Sessions</div>
+        <div class="stat-change up" style="font-size:0.78rem"><i class="fa-solid fa-arrow-trend-up"></i> 2 completed this month</div>
+      </div>
+      <div class="stat-card fade-up delay-4">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--success)"><i class="fa-solid fa-sack-dollar"></i></div>
+          <span class="tag tag-blue" style="font-size:0.7rem">Saved</span>
+        </div>
+        <div class="stat-value text-electric">$184.50</div>
+        <div class="stat-label">Member Loyalty Savings</div>
+        <div class="stat-change up" style="font-size:0.78rem"><i class="fa-solid fa-gift"></i> Next perk at 2,500 pts</div>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-split">
+      <!-- Next booking summary -->
+      <div class="chart-wrapper">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-calendar-check text-electric"></i> Next Mobile Detail</div>
+          <span class="tag tag-blue"><i class="fa-solid fa-van-shuttle"></i> En Route</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:16px;font-size:0.85rem">
+            <span style="color:var(--text-muted)"><i class="fa-solid fa-hashtag text-electric"></i> Order</span>
+            <span style="font-weight:600">#CG-4827 &bull; Full Detail + Ceramic Boost</span>
+          </div>
+          <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:16px;font-size:0.85rem">
+            <span style="color:var(--text-muted)"><i class="fa-solid fa-car text-electric"></i> Vehicle</span>
+            <span style="font-weight:600">2021 BMW 3 Series (M Sport)</span>
+          </div>
+          <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:16px;font-size:0.85rem">
+            <span style="color:var(--text-muted)"><i class="fa-solid fa-clock text-electric"></i> Window</span>
+            <span style="font-weight:600">Tomorrow &bull; 10:00 AM &ndash; 12:30 PM</span>
+          </div>
+          <div class="invoice-kv" style="display:flex;justify-content:space-between;gap:16px;font-size:0.85rem">
+            <span style="color:var(--text-muted)"><i class="fa-solid fa-user-gear text-electric"></i> Technician</span>
+            <span style="font-weight:600">Jake Torres &bull; Van #08 &bull; ETA 12 min</span>
+          </div>
+        </div>
+        <div class="dash-head-actions" style="margin-top:20px">
+          <a href="customer-tracking.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem"><i class="fa-solid fa-location-crosshairs"></i> Track Van</a>
+          <a href="customer-history.html" class="btn-outline-custom" style="padding:9px 18px;font-size:0.82rem"><i class="fa-solid fa-receipt"></i> View History</a>
+        </div>
+      </div>
+
+      <!-- Quick access -->
+      <div class="chart-wrapper">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-bolt text-electric"></i> Quick Actions</div>
+        </div>
+        <div class="dash-quick-grid">
+          <a href="customer-tracking.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-van-shuttle"></i></span>
+            <span>
+              <span class="dash-quick-title">Track Van</span>
+              <span class="dash-quick-desc" style="display:block">Live GPS &amp; ETA</span>
+            </span>
+          </a>
+          <a href="customer-garage.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-warehouse"></i></span>
+            <span>
+              <span class="dash-quick-title">My Garage</span>
+              <span class="dash-quick-desc" style="display:block">2 saved vehicles</span>
+            </span>
+          </a>
+          <a href="customer-booking.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-calendar-plus"></i></span>
+            <span>
+              <span class="dash-quick-title">Book Detail</span>
+              <span class="dash-quick-desc" style="display:block">Pick a date &amp; time</span>
+            </span>
+          </a>
+          <a href="customer-settings.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-gift"></i></span>
+            <span>
+              <span class="dash-quick-title">Rewards</span>
+              <span class="dash-quick-desc" style="display:block">2,400 points</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

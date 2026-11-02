@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss System Controls &ndash; configure dispatch automation rules and broadcast urgent advisories to the mobile fleet.">
+  <title>System Controls &ndash; CarGloss Admin Console</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="admin" data-page="controls">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-sliders"></i> Master Settings</div>
+        <h1 class="dash-page-title">System Controls &amp; Fleet Broadcast</h1>
+        <p class="dash-page-subtitle">Manage automated dispatch parameters and push urgent weather or traffic advisories to active field technicians.</p>
+      </div>
+      <div class="dash-head-actions">
+        <a href="admin-fleet.html" class="btn-outline-custom" style="padding:10px 18px;font-size:0.82rem"><i class="fa-solid fa-van-shuttle"></i> View Fleet</a>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-2">
+      <!-- Master Dispatch Controls -->
+      <div class="settings-card fade-left" style="margin-bottom:0">
+        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:16px"><i class="fa-solid fa-gear text-electric"></i> Dispatch Automation Rules</h4>
+        <div class="settings-row">
+          <div><div class="settings-label">Auto-Route Closest Mobile Van</div><div class="settings-desc">Algorithmically match reservations by driving distance &amp; tank levels</div></div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Dynamic Peak Hours Surcharge</div><div class="settings-desc">Activate automatic +15% pricing during Saturday morning peaks</div></div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Automated SMS Arrival Updates</div><div class="settings-desc">Send customer live GPS tracking links when van is 10 mins away</div></div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="settings-row" style="border-bottom:none">
+          <div><div class="settings-label">Auto-Publish 5-Star Reviews</div><div class="settings-desc">Instantly stream verified 5-star ratings to public website gallery</div></div>
+          <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:flex-end">
+          <button class="btn-primary-custom" style="padding:10px 22px;font-size:0.85rem" onclick="alert('Dispatch parameters updated across all 65 clusters!')">
+            <i class="fa-solid fa-floppy-disk"></i> Save Rules
+          </button>
+        </div>
+      </div>
+
+      <!-- Urgent Fleet Broadcast -->
+      <div class="settings-card fade-right" style="margin-bottom:0">
+        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:12px"><i class="fa-solid fa-bullhorn text-electric"></i> Urgent Mobile Fleet Broadcast</h4>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px">Push instantaneous weather advisories or traffic reroutes to all active field technicians.</p>
+        <form data-validate data-success-msg="Advisory successfully transmitted to all 24 active mobile vans!">
+          <div class="form-group" style="margin-bottom:12px">
+            <label class="form-label">Target Hub / Region</label>
+            <select class="form-control-custom" required>
+              <option>All 65 Metros (Nationwide Broadcast)</option>
+              <option>Midwest Hub (Chicago Metro &bull; 8 Vans)</option>
+              <option>Southeast Hub (Miami Metro &bull; 6 Vans)</option>
+              <option>West Coast Hub (Los Angeles &bull; 10 Vans)</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:16px">
+            <label class="form-label">Broadcast Alert Message</label>
+            <textarea class="form-control-custom" rows="3" placeholder="e.g. Severe thunderstorm warning in Cook County: Please shelter mobile vans until 14:00..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;padding:12px">
+            <i class="fa-solid fa-paper-plane"></i> Transmit Urgent Broadcast
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

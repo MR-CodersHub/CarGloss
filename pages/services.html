@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss Services &ndash; Exterior wash, interior cleaning, full detailing, paint polishing, waxing and premium packages for all vehicle types.">
+  <title>Services &ndash; CarGloss Premium Mobile Car Detailing</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .filter-bar { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:40px; }
+    .filter-btn { padding:10px 22px; border-radius:var(--radius-full); border:1.5px solid var(--border); font-size:0.875rem; font-weight:600; cursor:pointer; transition:all 0.3s ease; background:var(--glass); color:var(--text-muted); font-family:var(--font-body); }
+    .filter-btn:hover,.filter-btn.active { background:var(--electric-fill); border-color:var(--electric-fill); color:white; }
+    .service-grid-card { background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); overflow:hidden; transition:all 0.3s ease; }
+    .service-grid-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(40,120,255,0.25); }
+    .service-img { width:100%; height:180px; object-fit:cover; transition:transform 0.6s ease; }
+    .service-grid-card:hover .service-img { transform:scale(1.06); }
+    .service-card-body { padding:24px; }
+    .service-tag-row { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+    .service-price { font-family:var(--font-heading); font-size:1.4rem; font-weight:800; }
+    .comparison-section { overflow-x:auto; }
+    .comparison-table { width:100%; min-width:700px; border-collapse:collapse; }
+    .comparison-table th { background:var(--bg-3); padding:16px 20px; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); text-align:center; border-bottom:1px solid var(--border); }
+    .comparison-table th:first-child { text-align:left; }
+    .comparison-table td { padding:14px 20px; border-bottom:1px solid var(--border); font-size:0.875rem; color:var(--text-muted); text-align:center; }
+    .comparison-table td:first-child { font-weight:600; color:var(--text); text-align:left; }
+    .comparison-table tr:last-child td { border-bottom:none; }
+    .comparison-table tr:hover td { background:var(--glass); }
+    .check-icon { color:var(--success); font-size:1rem; }
+    .cross-icon { color:var(--text-muted); font-size:1rem; }
+    .pkg-header { background:linear-gradient(135deg,rgba(40,120,255,0.12),rgba(24,28,36,0.95)); }
+    .pkg-header.featured { background:var(--gradient-blue); color:white; }
+  </style>
+</head>
+<body><!-- - Navbar - -->
+<nav class="navbar-custom" id="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="navbar-logo">
+      <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+      <span class="navbar-logo-text">Car<span>Gloss</span></span>
+    </a>
+
+    <ul class="navbar-nav-custom">
+      <li><a href="../index.html" class="nav-link-custom">Home</a></li>
+      <li><a href="home2.html" class="nav-link-custom">Home2</a></li>
+      <li><a href="about.html" class="nav-link-custom">About</a></li>
+      <li><a href="services.html" class="nav-link-custom">Services</a></li>
+      <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      <li class="nav-dropdown">
+        <a href="customer-dashboard.html" class="nav-link-custom">Dashboard <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+        <div class="nav-dropdown-menu">
+          <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+          <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="navbar-actions">
+      <button class="theme-toggle-btn" data-theme-toggle title="Toggle theme">
+        <span data-theme-icon><i class="fa-solid fa-sun"></i></span>
+      </button>
+      <button class="rtl-toggle-btn" data-rtl-toggle title="Toggle RTL">RTL</button>
+      <a href="contact.html" class="btn-primary-custom navbar-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i> Book Now
+      </a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html"><i class="fa-solid fa-house"></i> Home &ndash; General</a>
+  <a href="home2.html"><i class="fa-solid fa-car-side"></i> Home &ndash; Niche</a>
+  <a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
+  <a href="services.html"><i class="fa-solid fa-spray-can-sparkles"></i> Services</a>
+  <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+  <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+  <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+  <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+  <div style="padding:12px 0 4px">
+    <a href="contact.html" class="btn-primary-custom" style="width:100%;justify-content:center;height:42px;display:flex;align-items:center;padding:0 20px;text-decoration:none">
+      <i class="fa-solid fa-calendar-check"></i> Book Now
+    </a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="photo-hero" style="background:var(--gradient-hero)">
+  <div class="page-hero-bg" style="background-image:url('../assets/images/services-showroom.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="hero-grid-overlay"></div>
+  <div style="position:absolute;top:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(40,120,255,0.1) 0%,transparent 70%);border-radius:50%"></div>
+  <div class="container-custom" style="position:relative;z-index:2;text-align:center">
+    <div class="section-badge" style="margin:0 auto 16px">Our Services</div>
+    <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem);max-width:800px;margin:0 auto 20px">Every Service, <span class="text-electric">Delivered to You</span></h1>
+    <p style="font-size:1rem;color:var(--text-muted);max-width:560px;margin:0 auto;line-height:1.7">Professional car care solutions for every need and budget. From express washes to full premium details &mdash; all at your location.</p>
+  </div>
+</section>
+
+<!-- FILTER + SERVICE GRID -->
+<section class="section" style="padding-top:60px">
+  <div class="container-custom">
+    <div class="filter-bar fade-up">
+      <button class="filter-btn active" data-filter-btn="all">All Services</button>
+      <button class="filter-btn" data-filter-btn="exterior">Exterior</button>
+      <button class="filter-btn" data-filter-btn="interior">Interior</button>
+      <button class="filter-btn" data-filter-btn="full">Full Detail</button>
+      <button class="filter-btn" data-filter-btn="premium">Premium</button>
+      <button class="filter-btn" data-filter-btn="addon">Add-Ons</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <!-- Exterior Wash -->
+      <div class="service-grid-card fade-up delay-1" data-category="exterior">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-exterior-sedan.jpg" alt="Freshly washed black sedan front view" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag tag-blue">Exterior</span><span class="tag tag-green">45 min</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Exterior Hand Wash</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Two-bucket method hand wash, wheel cleaning, tire dressing, and streak-free towel dry. Foam cannon pre-wash included.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">$49 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">sedan</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Foam Detail -->
+      <div class="service-grid-card fade-up delay-2" data-category="exterior">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-foam-windshield.jpg" alt="Thick snow foam on a windshield during pre-wash" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag tag-blue">Exterior</span><span class="tag">1.5 hrs</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Foam & Clay Decontamination</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Snow foam, two-stage wash, clay bar decontamination, iron remover, rinse and air dry. Paint feels glass-smooth.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">$89 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">sedan</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Interior Clean -->
+      <div class="service-grid-card fade-up delay-3" data-category="interior">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-interior-porsche.jpg" alt="Deep-cleaned black leather sports seats" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag tag-green">Interior</span><span class="tag">1 hr</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Interior Deep Clean</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Full vacuum, dashboard wipe, glass cleaning, door jamb clean, seat shampooing and air freshener treatment.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">$79 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">sedan</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Full Detail -->
+      <div class="service-grid-card fade-up delay-1" data-category="full">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-fulldetail-trunk.jpg" alt="Technician deep cleaning a car trunk" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag tag-orange">Full Detail</span><span class="tag">3-4 hrs</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Complete Full Detail</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Exterior wash + clay + interior deep clean + leather conditioning + window detailing + tire shine. The complete package.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">$149 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">sedan</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Paint Polish -->
+      <div class="service-grid-card fade-up delay-2" data-category="premium">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-polish-detail.jpg" alt="Glossy paint close-up after machine polishing" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--warning)">Premium</span><span class="tag">4-6 hrs</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">One-Stage Paint Polish</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Machine compound with DA polisher, swirl removal, light scratch elimination and high-gloss finishing polish. Remarkable results.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">$199 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">sedan</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Ceramic Coating -->
+      <div class="service-grid-card fade-up delay-3" data-category="premium">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-ceramic-beading.jpg" alt="Water beading on red ceramic-coated paint" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--warning)">Elite</span><span class="tag">6-8 hrs</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Ceramic Pro Coating</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Professional-grade nano-ceramic coating applied after full paint correction. Hydrophobic protection lasting 2-5 years. Warranty included.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">$799+ <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">from</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Get Quote</a>
+          </div>
+        </div>
+      </div>
+      <!-- Wax Protection -->
+      <div class="service-grid-card fade-up delay-1" data-category="addon">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-wax-vintage-ad.jpg" alt="Vintage car wax advertisement artwork" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag">Add-On</span><span class="tag">45 min</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Carnauba Wax Protection</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Premium Carnauba paste wax hand-applied for deep wet-look gloss and 6-month paint protection. Can be combined with any package.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">+$49 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">add-on</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Add On</a>
+          </div>
+        </div>
+      </div>
+      <!-- Odor Elimination -->
+      <div class="service-grid-card fade-up delay-2" data-category="addon">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-odor-cabin.jpg" alt="Freshened rear cabin seats after odor treatment" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag">Add-On</span><span class="tag">30 min</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Odor Elimination Treatment</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Ozone generator treatment eliminates smoke, pet, mold, and food odors at the molecular level. Lasting freshness guaranteed.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">+$35 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">add-on</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Add On</a>
+          </div>
+        </div>
+      </div>
+      <!-- Engine Bay -->
+      <div class="service-grid-card fade-up delay-3" data-category="addon">
+        <div style="overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+          <img src="../assets/images/svc-engine-bay.jpg" alt="Engine bay after degreasing and dressing" class="service-img">
+        </div>
+        <div class="service-card-body">
+          <div class="service-tag-row"><span class="tag">Add-On</span><span class="tag">1 hr</span></div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Engine Bay Detailing</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px">Safe degreasing, low-pressure rinse, dressing of hoses, cables and plastic covers. Your engine will look showroom-fresh.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="service-price">+$65 <span style="font-size:0.82rem;font-weight:400;color:var(--text-muted)">add-on</span></div>
+            <a href="service-details.html" class="btn-primary-custom" style="padding:9px 18px;font-size:0.82rem">Add On</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING PACKAGES -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:48px">
+      <div class="section-badge">Pricing Packages</div>
+      <h2 class="section-title">Clear, Transparent <span class="text-electric">Pricing</span></h2>
+      <p class="section-subtitle">All packages include free travel to your location. Prices shown for standard sedan; SUV/Truck pricing slightly higher.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <!-- Basic -->
+      <div class="pricing-card fade-up delay-1">
+        <div style="font-size:2rem;margin-bottom:12px"><i class="fa-solid fa-droplet"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px">Basic Wash</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px">Perfect for weekly maintenance</p>
+        <div class="pricing-price"><sup>$</sup>49 <span class="pricing-period">/session</span></div>
+        <ul class="pricing-features" style="margin-top:24px">
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Exterior hand wash</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Wheel & tire clean</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Window exterior</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Quick interior wipe</li>
+          <li><span class="cross"><i class="fa-solid fa-xmark"></i></span> Clay bar treatment</li>
+          <li><span class="cross"><i class="fa-solid fa-xmark"></i></span> Interior deep clean</li>
+          <li><span class="cross"><i class="fa-solid fa-xmark"></i></span> Wax / sealant</li>
+        </ul>
+        <a href="customer-dashboard.html" class="btn-outline-custom" style="width:100%;justify-content:center;margin-top:16px">Book Basic</a>
+      </div>
+      <!-- Premium -->
+      <div class="pricing-card featured fade-up delay-2">
+        <div class="pricing-badge">Most Popular</div>
+        <div style="font-size:2rem;margin-bottom:12px"><i class="fa-solid fa-star"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px">Full Detail</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px">Our best-selling complete package</p>
+        <div class="pricing-price text-electric"><sup>$</sup>149 <span class="pricing-period">/session</span></div>
+        <ul class="pricing-features" style="margin-top:24px">
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Full exterior wash</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Clay bar decontam.</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Interior deep clean</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Leather conditioning</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> All windows</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Tire shine</li>
+          <li><span class="cross"><i class="fa-solid fa-xmark"></i></span> Paint polish</li>
+        </ul>
+        <a href="customer-dashboard.html" class="btn-primary-custom" style="width:100%;justify-content:center;margin-top:16px">Book Full Detail</a>
+      </div>
+      <!-- Elite -->
+      <div class="pricing-card fade-up delay-3">
+        <div style="font-size:2rem;margin-bottom:12px"><i class="fa-solid fa-car-side"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px">Elite Polish</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px">For showroom-quality results</p>
+        <div class="pricing-price"><sup>$</sup>349 <span class="pricing-period">/session</span></div>
+        <ul class="pricing-features" style="margin-top:24px">
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Everything in Full</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> 2-stage paint polish</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Swirl elimination</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Carnauba wax finish</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Engine bay clean</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Odor treatment</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Photo documentation</li>
+        </ul>
+        <a href="customer-dashboard.html" class="btn-outline-custom" style="width:100%;justify-content:center;margin-top:16px">Book Elite</a>
+      </div>
+      <!-- Ceramic -->
+      <div class="pricing-card fade-up delay-4">
+        <div class="pricing-badge" style="background:linear-gradient(135deg,var(--warning-fill),#92400E)">Ultimate</div>
+        <div style="font-size:2rem;margin-bottom:12px"><i class="fa-solid fa-gem"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px">Ceramic Shield</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px">Long-term protection investment</p>
+        <div class="pricing-price"><sup>$</sup>799+ <span class="pricing-period">custom</span></div>
+        <ul class="pricing-features" style="margin-top:24px">
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Full Elite service</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Ceramic Pro coating</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> 2-5 yr warranty</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Hydrophobic seal</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> UV protection</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> 6-month check-in</li>
+          <li><span class="check"><i class="fa-solid fa-check"></i></span> Priority support</li>
+        </ul>
+        <a href="contact.html" class="btn-outline-custom" style="width:100%;justify-content:center;margin-top:16px">Get a Quote</a>
+      </div>
+    </div>
+
+    <!-- Powerful Add-On Upgrades Strip -->
+    <div style="border-top:1px solid var(--border);margin-top:48px;padding-top:48px">
+      <div class="section-header-center fade-up" style="margin-bottom:36px">
+        <div class="section-badge">Customise Your Service</div>
+        <h3 class="section-title" style="font-size:1.8rem">Powerful <span class="text-electric">Add-On Services</span></h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+        <div class="card-service fade-up delay-1">
+          <div class="card-icon" style="color:var(--electric)"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Fabric Protector</h4>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Scotchgard-grade hydrophobic repellent applied to seats and carpets. +$39</p>
+        </div>
+        <div class="card-service fade-up delay-2">
+          <div class="card-icon" style="color:var(--warning)"><i class="fa-solid fa-sun"></i></div>
+          <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Headlight Restore</h4>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Multi-stage wet sanding and UV sealant for foggy polycarbonate lenses. +$45</p>
+        </div>
+        <div class="card-service fade-up delay-3">
+          <div class="card-icon" style="color:var(--success)"><i class="fa-solid fa-paw"></i></div>
+          <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Pet Hair Removal</h4>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Specialist silicone blade extraction and electrostatic deep vacuuming. +$30</p>
+        </div>
+        <div class="card-service fade-up delay-4">
+          <div class="card-icon" style="color:var(--purple)"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:6px">Trim Restoration</h4>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5">Restore sun-faded exterior plastic moldings to deep satin black. +$35</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE COMPARISON TABLE -->
+<section class="section">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:48px">
+      <div class="section-badge">Compare</div>
+      <h2 class="section-title">Package <span class="text-electric">Comparison</span></h2>
+    </div>
+    <div class="comparison-section admin-table-wrapper fade-up">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature Included</th>
+            <th>Basic ($49)</th>
+            <th>Full Detail ($149)</th>
+            <th>Elite ($349)</th>
+            <th>Ceramic ($799+)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Exterior Hand Wash</td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Wheel & Tire Clean</td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Clay Bar Decontam.</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Interior Deep Clean</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Leather Conditioning</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Machine Paint Polish</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Carnauba Wax</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Engine Bay Clean</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Ceramic Pro Coating</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i></span></td></tr>
+          <tr><td>Warranty Included</td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="cross-icon"><i class="fa-solid fa-xmark"></i></span></td><td><span class="check-icon"><i class="fa-solid fa-check"></i> 2-5yr</span></td></tr>
+          <tr><td>Estimated Duration</td><td>45 min</td><td>3-4 hrs</td><td>5-7 hrs</td><td>8-12 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:32px" class="fade-up">
+      <a href="customer-dashboard.html" class="btn-primary-custom" style="padding:14px 36px">Book Your Package</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container-custom">
+    <div style="display:flex;gap:60px;flex-wrap:wrap">
+      <div style="flex:0 0 320px" class="fade-left">
+        <div class="section-badge">FAQ</div>
+        <h2 class="section-title">Got <span class="text-electric">Questions?</span></h2>
+        <p style="color:var(--text-muted);line-height:1.7;margin-bottom:24px">Everything you need to know about our services, pricing, and what to expect on booking day.</p>
+        <a href="contact.html" class="btn-outline-custom">Contact Support</a>
+      </div>
+      <div style="flex:1;min-width:280px">
+        <div class="faq-item fade-up delay-1"><button class="faq-question">What vehicles do you service? <span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">All makes and models &mdash; sedans, SUVs, trucks, vans, luxury cars, exotics, and electric vehicles. We have specialized equipment and protocols for each vehicle class.</div></div></div>
+        <div class="faq-item fade-up delay-2"><button class="faq-question">Do I need to provide water or power? <span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No. Our mobile units are completely self-contained with their own water tank, pressure washer, vacuum, and power supply. All you need to do is show up with your car.</div></div></div>
+        <div class="faq-item fade-up delay-3"><button class="faq-question">How long does a full detail take? <span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">A complete full detail typically takes 3-4 hours for a standard sedan. Larger vehicles and premium packages may take 5-8 hours. We always provide an estimated time at booking.</div></div></div>
+        <div class="faq-item fade-up delay-4"><button class="faq-question">What is your cancellation policy? <span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Free cancellation up to 2 hours before your appointment. Bookings cancelled with less than 2 hours notice may incur a small convenience fee. We always try to reschedule first.</div></div></div>
+        <div class="faq-item fade-up delay-5"><button class="faq-question">Are your products safe for ceramic/PPF coated cars? <span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Absolutely. We stock specific pH-neutral products designed for use on ceramic-coated and PPF-wrapped vehicles. Always inform us at booking if your car has existing protection.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section">
+  <div class="container-custom cta-wrap" style="text-align:center;position:relative;z-index:1">
+    <h2 class="section-title fade-up" style="max-width:600px;margin:0 auto 20px">Ready for a <span class="text-electric">Spotless Car?</span></h2>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="fade-up delay-1">
+      <a href="customer-dashboard.html" class="btn-primary-custom" style="padding:14px 36px"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+      <a href="service-details.html" class="btn-outline-custom" style="padding:14px 36px;color:white;border-color:rgba(255,255,255,0.55)">View Service Details</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container-custom">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:48px;flex-wrap:wrap">
+      <div>
+        <div class="footer-logo">
+          <a href="../index.html" class="navbar-logo" style="margin-bottom:12px;display:inline-flex">
+            <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+            <span class="navbar-logo-text">Car<span>Gloss</span></span>
+          </a>
+        </div>
+        <p class="footer-desc">Premium mobile car detailing delivered to your doorstep. Certified technicians, professional products, and guaranteed results.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Exterior Wash</a></li>
+          <li><a href="service-details.html">Interior Cleaning</a></li>
+          <li><a href="service-details.html">Full Detailing</a></li>
+          <li><a href="service-details.html">Paint Polishing</a></li>
+          <li><a href="service-details.html">Ceramic Coating</a></li>
+          <li><a href="service-details.html">Fleet Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Account</div>
+        <ul class="footer-links">
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="login.html#register">Register</a></li>
+          <li><a href="customer-dashboard.html">Dashboard</a></li>
+          <li><a href="customer-history.html">My Bookings</a></li>
+          <li><a href="customer-garage.html">My Vehicles</a></li>
+          <li><a href="#">Refer a Friend</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Get the App</div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px">Book, track and manage your detailing sessions from your phone.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-apple" style="font-size:1.5rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Download on</div><div style="font-size:0.85rem;font-weight:700">App Store</div></div>
+          </a>
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-google-play" style="font-size:1.3rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Get it on</div><div style="font-size:0.85rem;font-weight:700">Google Play</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CarGloss Inc. All rights reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Privacy Policy</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Terms of Service</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

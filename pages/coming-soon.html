@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss Expansion Radar &ndash; New cities launching soon. Join the priority waitlist to lock in exclusive 15% founder discounts.">
+  <title>Coming Soon &ndash; CarGloss Metro Expansion Radar</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .countdown-grid { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:32px 0 12px; }
+    .countdown-unit { text-align:center; background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:20px 24px; min-width:96px; position:relative; overflow:hidden; }
+    .countdown-num { font-family:var(--font-heading); font-size:clamp(2.2rem,5vw,3.4rem); font-weight:900; line-height:1; color:var(--electric); }
+    .countdown-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-top:6px; }
+    .city-card { background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:24px; text-align:center; transition:all 0.3s ease; }
+    .city-card:hover { transform:translateY(-4px); border-color:rgba(40,120,255,0.4); box-shadow:var(--shadow); }
+    .city-badge { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--electric); margin-bottom:6px; }
+    .status-node { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:var(--bg-3); border-radius:var(--radius-sm); border:1px solid var(--border); }
+  </style>
+</head>
+<body><!-- - Navbar - -->
+<nav class="navbar-custom" id="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="navbar-logo">
+      <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+      <span class="navbar-logo-text">Car<span>Gloss</span></span>
+    </a>
+
+    <ul class="navbar-nav-custom">
+      <li><a href="../index.html" class="nav-link-custom">Home</a></li>
+      <li><a href="home2.html" class="nav-link-custom">Home2</a></li>
+      <li><a href="about.html" class="nav-link-custom">About</a></li>
+      <li><a href="services.html" class="nav-link-custom">Services</a></li>
+      <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      <li class="nav-dropdown">
+        <a href="customer-dashboard.html" class="nav-link-custom">Dashboard <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+        <div class="nav-dropdown-menu">
+          <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+          <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="navbar-actions">
+      <button class="theme-toggle-btn" data-theme-toggle title="Toggle theme">
+        <span data-theme-icon><i class="fa-solid fa-sun"></i></span>
+      </button>
+      <button class="rtl-toggle-btn" data-rtl-toggle title="Toggle RTL">RTL</button>
+      <a href="contact.html" class="btn-primary-custom navbar-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i> Book Now
+      </a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html"><i class="fa-solid fa-house"></i> Home &ndash; General</a>
+  <a href="home2.html"><i class="fa-solid fa-car-side"></i> Home &ndash; Niche</a>
+  <a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
+  <a href="services.html"><i class="fa-solid fa-spray-can-sparkles"></i> Services</a>
+  <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+  <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+  <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+  <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+  <div style="padding:12px 0 4px">
+    <a href="contact.html" class="btn-primary-custom" style="width:100%;justify-content:center;height:42px;display:flex;align-items:center;padding:0 20px;text-decoration:none">
+      <i class="fa-solid fa-calendar-check"></i> Book Now
+    </a>
+  </div>
+</div>
+
+<!-- SECTION 1: METRO EXPANSION RADAR & LIVE COUNTDOWN -->
+<section class="photo-hero" id="cs-countdown-hero" style="background:var(--gradient-hero);text-align:center">
+  <div class="page-hero-bg" style="background-image:url('../assets/images/soon-road-ahead.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="container-custom" style="position:relative;z-index:2">
+    <div class="section-badge" style="margin:0 auto 16px"><i class="fa-solid fa-satellite-dish"></i> National Expansion Radar</div>
+    <h1 class="section-title" style="font-size:clamp(2.3rem,5vw,3.8rem);max-width:800px;margin:0 auto 18px">Next Metro Launch &bull; <span class="text-electric">Rolling Out In</span></h1>
+    <p style="font-size:1.05rem;color:var(--text-muted);max-width:580px;margin:0 auto;line-height:1.7">We're deploying 50 self-contained mobile detailing vans into 25 new metropolitan regions across the United States.</p>
+
+    <!-- Real-Time Countdown Blocks -->
+    <div class="countdown-grid">
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-days">19</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-hours">14</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-mins">32</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-secs">48</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: PRIORITY VIP WAITLIST FORM -->
+<section class="section" id="cs-priority-waitlist" style="padding-top:40px;padding-bottom:60px">
+  <div class="container-custom">
+    <div style="max-width:560px;margin:0 auto">
+      <div class="booking-form-wrap fade-up" style="padding:32px">
+        <div style="text-align:center;margin-bottom:20px">
+          <div class="card-icon" style="margin:0 auto 12px;width:48px;height:48px"><i class="fa-solid fa-gift text-electric"></i></div>
+          <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:6px">Join the Priority Founder Waitlist</h2>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0">Get early VIP booking access and an instant <strong style="color:var(--electric)">15% launch voucher code</strong> when vans arrive in your zip code.</p>
+        </div>
+
+        <form data-validate data-success-msg="Welcome to the CarGloss Founder Circle! Check your email for your 15% discount code.">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control-custom" placeholder="Johnathan Miller" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control-custom" placeholder="j.miller@example.com" required>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Target City &amp; State</label>
+              <input type="text" class="form-control-custom" placeholder="e.g. Denver, CO" required>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">5-Digit ZIP</label>
+              <input type="text" class="form-control-custom" placeholder="80202" maxlength="5" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:20px">
+            <label class="form-label">Primary Services Desired</label>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <label style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" style="accent-color:var(--electric)" checked> Full Detail
+              </label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" style="accent-color:var(--electric)" checked> Ceramic Coating
+              </label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-muted);cursor:pointer">
+                <input type="checkbox" style="accent-color:var(--electric)"> Fleet Maintenance
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center;padding:12px">
+            <i class="fa-solid fa-envelope"></i> Reserve My Founder Spot &amp; Get 15% Off
+          </button>
+        </form>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+          <div style="display:flex">
+            <div class="avatar avatar-sm" style="width:24px;height:24px;font-size:0.6rem;border:2px solid var(--bg-2)">MR</div>
+            <div class="avatar avatar-sm" style="width:24px;height:24px;font-size:0.6rem;border:2px solid var(--bg-2);background:var(--success-fill);margin-left:-6px">ST</div>
+            <div class="avatar avatar-sm" style="width:24px;height:24px;font-size:0.6rem;border:2px solid var(--bg-2);background:var(--warning-fill);margin-left:-6px">JK</div>
+          </div>
+          <span style="font-size:0.78rem;color:var(--text-muted)"><strong style="color:var(--text)">2,847 vehicle owners</strong> currently queued</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: SCHEDULED REGIONAL LAUNCH TARGETS -->
+<section class="section" id="cs-upcoming-metros" style="background:var(--bg-2);padding-top:60px;padding-bottom:60px">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:36px">
+      <div class="section-badge"><i class="fa-solid fa-map-location-dot"></i> Confirmed Pipeline</div>
+      <h2 class="section-title">Next Scheduled <span class="text-electric">Metro Launches</span></h2>
+      <p class="section-subtitle">Mobile detail units and certified technician crews are completing staging in these target metros.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+      <div class="city-card fade-up delay-1">
+        <div class="city-badge"><i class="fa-solid fa-calendar"></i> November 1, 2026</div>
+        <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:4px">Denver &bull; Boulder, CO</h3>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:14px">Mile High Metro &amp; Rocky Mountain Foothills</p>
+        <div style="height:6px;background:var(--border);border-radius:var(--radius-full);overflow:hidden;margin-bottom:6px">
+          <div style="height:100%;width:84%;background:var(--electric)"></div>
+        </div>
+        <div style="font-size:0.75rem;color:var(--electric);font-weight:700">84% Capacity Claimed</div>
+      </div>
+
+      <div class="city-card fade-up delay-2">
+        <div class="city-badge"><i class="fa-solid fa-calendar"></i> November 15, 2026</div>
+        <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:4px">Minneapolis &bull; St. Paul, MN</h3>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:14px">Twin Cities &bull; Winter Road Salt Defense</p>
+        <div style="height:6px;background:var(--border);border-radius:var(--radius-full);overflow:hidden;margin-bottom:6px">
+          <div style="height:100%;width:68%;background:var(--success-fill)"></div>
+        </div>
+        <div style="font-size:0.75rem;color:var(--success);font-weight:700">68% Capacity Claimed</div>
+      </div>
+
+      <div class="city-card fade-up delay-3">
+        <div class="city-badge"><i class="fa-solid fa-calendar"></i> December 1, 2026</div>
+        <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:4px">New Orleans, LA</h3>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:14px">Greater Metro &bull; UV &amp; Humidity Protection</p>
+        <div style="height:6px;background:var(--border);border-radius:var(--radius-full);overflow:hidden;margin-bottom:6px">
+          <div style="height:100%;width:52%;background:var(--warning-fill)"></div>
+        </div>
+        <div style="font-size:0.75rem;color:var(--warning);font-weight:700">52% Capacity Claimed</div>
+      </div>
+
+      <div class="city-card fade-up delay-4">
+        <div class="city-badge"><i class="fa-solid fa-calendar"></i> December 15, 2026</div>
+        <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:4px">Nashville &bull; Franklin, TN</h3>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:14px">Music City Metro &amp; Williamson County</p>
+        <div style="height:6px;background:var(--border);border-radius:var(--radius-full);overflow:hidden;margin-bottom:6px">
+          <div style="height:100%;width:76%;background:var(--purple-fill)"></div>
+        </div>
+        <div style="font-size:0.75rem;color:var(--purple);font-weight:700">76% Capacity Claimed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: NEXT-GEN MOBILE FLEET ARSENAL -->
+<section class="section" id="cs-upcoming-tech" style="padding-top:60px;padding-bottom:60px">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:40px">
+      <div class="section-badge"><i class="fa-solid fa-microchip"></i> Engineering Innovation</div>
+      <h2 class="section-title">What's Launching In Our <span class="text-electric">New Fleet</span></h2>
+      <p class="section-subtitle">Every new CarGloss deployment unit features groundbreaking automotive care hardware.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <div class="contact-card fade-up delay-1" style="text-align:left">
+        <div class="contact-icon" style="margin:0 0 16px"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px">100% Electric E-Transit Vans</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Zero noise and zero tailpipe emissions while detailing your vehicle right in your driveway.</p>
+      </div>
+      <div class="contact-card fade-up delay-2" style="text-align:left">
+        <div class="contact-icon" style="margin:0 0 16px"><i class="fa-solid fa-water"></i></div>
+        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px">Reverse Osmosis Deionizers</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Spot-free finish guaranteed through 0-PPM mineral-filtered pure water delivered from on-board tanks.</p>
+      </div>
+      <div class="contact-card fade-up delay-3" style="text-align:left">
+        <div class="contact-icon" style="margin:0 0 16px"><i class="fa-solid fa-camera"></i></div>
+        <h4 style="font-weight:700;font-size:1.05rem;margin-bottom:8px">AI Paint Inspection Optics</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6">Digital swirl depth mapping and clear coat thickness gauges logged to your CarGloss Digital Garage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: REAL-TIME INFRASTRUCTURE & MAINTENANCE STATUS -->
+<section class="section" id="cs-maintenance-infrastructure" style="background:var(--bg-2);padding-top:60px;padding-bottom:60px">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:32px">
+      <div class="section-badge"><i class="fa-solid fa-server"></i> System Telemetry</div>
+      <h2 class="section-title">CarGloss Platform <span class="text-electric">Health &amp; Uptime</span></h2>
+      <p class="section-subtitle">Real-time status of our nationwide dispatch servers, APIs, and client gateways.</p>
+    </div>
+
+    <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:12px" class="fade-up">
+      <div class="status-node">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="status-dot online"></div>
+          <div>
+            <div style="font-weight:700;font-size:0.9rem">GPS Van Routing &amp; Telemetry API</div>
+            <div style="font-size:0.75rem;color:var(--text-muted)">99.98% uptime &bull; 12ms latency</div>
+          </div>
+        </div>
+        <span class="tag tag-green">Operational</span>
+      </div>
+      <div class="status-node">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="status-dot online"></div>
+          <div>
+            <div style="font-weight:700;font-size:0.9rem">Customer Booking &amp; Scheduling Engine</div>
+            <div style="font-size:0.75rem;color:var(--text-muted)">24/7 instant slot confirmation</div>
+          </div>
+        </div>
+        <span class="tag tag-green">Operational</span>
+      </div>
+      <div class="status-node">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="status-dot online"></div>
+          <div>
+            <div style="font-weight:700;font-size:0.9rem">Payment Processing &amp; Invoice Billing</div>
+            <div style="font-size:0.75rem;color:var(--text-muted)">PCI-DSS Tier 1 Encrypted</div>
+          </div>
+        </div>
+        <span class="tag tag-green">Operational</span>
+      </div>
+      <div class="status-node">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="status-dot en-route"></div>
+          <div>
+            <div style="font-weight:700;font-size:0.9rem">New Regional Metros Node Deployment</div>
+            <div style="font-size:0.75rem;color:var(--text-muted)">Denver, Minneapolis, New Orleans in active test staging</div>
+          </div>
+        </div>
+        <span class="tag tag-blue">Deploying</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: ACTIVE METROS DIRECT BOOKING CTA -->
+<section class="section cta-section" id="cs-active-metro-dispatch">
+  <div class="container-custom cta-wrap" style="text-align:center;position:relative;z-index:1">
+    <div class="section-badge" style="margin:0 auto 16px"><i class="fa-solid fa-truck-fast"></i> Currently In 65+ Cities</div>
+    <h2 class="section-title fade-up" style="max-width:680px;margin:0 auto 20px">Already In One Of Our <span class="text-electric">Active Service Hubs?</span></h2>
+    <p class="section-subtitle fade-up" style="margin:0 auto 32px">If you reside in Chicago, Miami, Los Angeles, New York, Houston, or our other 60+ active clusters, we are ready to detail your car today!</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="fade-up delay-1">
+      <a href="customer-dashboard.html" class="btn-primary-custom" style="padding:16px 36px"><i class="fa-solid fa-calendar-check"></i> Book Active Mobile Detail</a>
+      <a href="contact.html" class="btn-outline-custom" style="padding:16px 36px;color:white;border-color:rgba(255,255,255,0.55)"><i class="fa-solid fa-map-location-dot"></i> Check ZIP Code Coverage</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container-custom">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:48px;flex-wrap:wrap">
+      <div>
+        <div class="footer-logo">
+          <a href="../index.html" class="navbar-logo" style="margin-bottom:12px;display:inline-flex">
+            <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+            <span class="navbar-logo-text">Car<span>Gloss</span></span>
+          </a>
+        </div>
+        <p class="footer-desc">Premium mobile car detailing delivered to your doorstep. Certified technicians, professional products, and guaranteed results.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Exterior Wash</a></li>
+          <li><a href="service-details.html">Interior Cleaning</a></li>
+          <li><a href="service-details.html">Full Detailing</a></li>
+          <li><a href="service-details.html">Paint Polishing</a></li>
+          <li><a href="service-details.html">Ceramic Coating</a></li>
+          <li><a href="service-details.html">Fleet Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Account</div>
+        <ul class="footer-links">
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="login.html#register">Register</a></li>
+          <li><a href="customer-dashboard.html">Dashboard</a></li>
+          <li><a href="customer-history.html">My Bookings</a></li>
+          <li><a href="customer-garage.html">My Vehicles</a></li>
+          <li><a href="#">Refer a Friend</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Get the App</div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px">Book, track and manage your detailing sessions from your phone.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-apple" style="font-size:1.5rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Download on</div><div style="font-size:0.85rem;font-weight:700">App Store</div></div>
+          </a>
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-google-play" style="font-size:1.3rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Get it on</div><div style="font-size:0.85rem;font-weight:700">Google Play</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CarGloss Inc. All rights reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Privacy Policy</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Terms of Service</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // Countdown to November 1, 2026
+  const targetDate = new Date('2026-11-01T08:00:00');
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('cd-days').textContent  = String(d).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>

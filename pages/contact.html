@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact CarGloss &ndash; Get in touch for mobile bookings, fleet quotes, partnerships and support. Available 7 days a week.">
+  <title>Contact Us &ndash; CarGloss Premium Mobile Car Detailing</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .contact-card { background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:24px; text-align:center; transition:all 0.3s ease; }
+    .contact-card:hover { transform:translateY(-4px); border-color:rgba(40,120,255,0.4); box-shadow:var(--shadow); }
+    .contact-icon { width:56px; height:56px; border-radius:var(--radius); background:rgba(40,120,255,0.12); border:1px solid rgba(40,120,255,0.25); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--electric); margin:0 auto 14px; }
+    .map-container { background:var(--bg-3); border:1px solid var(--border); border-radius:var(--radius-lg); height:380px; position:relative; overflow:hidden; }
+    .map-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(40,120,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(40,120,255,0.06) 1px,transparent 1px); background-size:40px 40px; }
+    .map-road-h { position:absolute; background:rgba(40,120,255,0.12); }
+    .map-road-v { position:absolute; background:rgba(40,120,255,0.12); }
+    .map-pin-marker { position:absolute; top:45%; left:50%; transform:translate(-50%,-50%); z-index:2; text-align:center; }
+    .map-pin-icon { font-size:2.4rem; color:var(--electric); animation:bounce 2s ease-in-out infinite; }
+    .map-pin-label { background:var(--midnight); color:white; border:1px solid var(--border); border-radius:var(--radius-sm); padding:6px 14px; font-size:0.78rem; font-weight:700; margin-top:8px; white-space:nowrap; box-shadow:var(--shadow); }
+    .office-card { background:var(--gradient-card); border:1px solid var(--glass-border); border-radius:var(--radius-lg); padding:20px; display:flex; gap:16px; align-items:flex-start; transition:all 0.3s ease; }
+    .office-card:hover { border-color:rgba(40,120,255,0.4); }
+    .office-icon-wrap { width:44px; height:44px; border-radius:10px; background:rgba(40,120,255,0.1); border:1px solid rgba(40,120,255,0.2); display:flex; align-items:center; justify-content:center; color:var(--electric); font-size:1.1rem; flex-shrink:0; }
+    .service-area-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(40,120,255,0.08); border:1px solid rgba(40,120,255,0.15); color:var(--electric); font-size:0.8rem; font-weight:600; padding:6px 14px; border-radius:var(--radius-full); margin:4px; }
+    /* ZIP availability check — stacks on mobile */
+    .zip-check-row { display:flex; gap:10px; }
+    .zip-check-row input { flex:1; min-width:0; }
+    @media (max-width: 480px) {
+      .zip-check-row { flex-direction:column; }
+      .zip-check-row .btn-primary-custom { width:100%; justify-content:center; }
+    }
+  </style>
+</head>
+<body><!-- - Navbar - -->
+<nav class="navbar-custom" id="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="navbar-logo">
+      <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+      <span class="navbar-logo-text">Car<span>Gloss</span></span>
+    </a>
+
+    <ul class="navbar-nav-custom">
+      <li><a href="../index.html" class="nav-link-custom">Home</a></li>
+      <li><a href="home2.html" class="nav-link-custom">Home2</a></li>
+      <li><a href="about.html" class="nav-link-custom">About</a></li>
+      <li><a href="services.html" class="nav-link-custom">Services</a></li>
+      <li><a href="blog.html" class="nav-link-custom">Blog</a></li>
+      <li><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      <li class="nav-dropdown">
+        <a href="customer-dashboard.html" class="nav-link-custom">Dashboard <i class="fa-solid fa-chevron-down dropdown-arrow"></i></a>
+        <div class="nav-dropdown-menu">
+          <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+          <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="navbar-actions">
+      <button class="theme-toggle-btn" data-theme-toggle title="Toggle theme">
+        <span data-theme-icon><i class="fa-solid fa-sun"></i></span>
+      </button>
+      <button class="rtl-toggle-btn" data-rtl-toggle title="Toggle RTL">RTL</button>
+      <a href="contact.html" class="btn-primary-custom navbar-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i> Book Now
+      </a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html"><i class="fa-solid fa-house"></i> Home &ndash; General</a>
+  <a href="home2.html"><i class="fa-solid fa-car-side"></i> Home &ndash; Niche</a>
+  <a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a>
+  <a href="services.html"><i class="fa-solid fa-spray-can-sparkles"></i> Services</a>
+  <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+  <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+  <a href="customer-dashboard.html"><i class="fa-solid fa-user"></i> Customer Dashboard</a>
+  <a href="admin-dashboard.html"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+  <div style="padding:12px 0 4px">
+    <a href="contact.html" class="btn-primary-custom" style="width:100%;justify-content:center;height:42px;display:flex;align-items:center;padding:0 20px;text-decoration:none">
+      <i class="fa-solid fa-calendar-check"></i> Book Now
+    </a>
+  </div>
+</div>
+
+<!-- SECTION 1: HERO -->
+<section class="photo-hero" style="background:var(--gradient-hero)">
+  <div class="page-hero-bg" style="background-image:url('../assets/images/contact-tech-hands.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="container-custom" style="position:relative;z-index:2;text-align:center">
+    <div class="section-badge" style="margin:0 auto 16px"><i class="fa-solid fa-headset"></i> 24/7 Dispatch Concierge</div>
+    <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem);max-width:760px;margin:0 auto 20px">Let's Connect &bull; <span class="text-electric">We Come To You</span></h1>
+    <p style="font-size:1.05rem;color:var(--text-muted);max-width:580px;margin:0 auto;line-height:1.7">Questions, fleet inquiries, custom requests, or immediate roadside detailing bookings &mdash; our team responds in under 15 minutes.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: CHANNELS & DISPATCH FORM WITH MAP -->
+<section class="section" style="padding-top:40px;padding-bottom:70px">
+  <div class="container-custom">
+    <!-- Channel cards row -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:50px">
+      <div class="contact-card fade-up delay-1">
+        <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Direct Phone</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px">7 Days &bull; 7am&ndash;9pm CST</p>
+        <a href="tel:+18005552273" style="color:var(--electric);font-weight:700;font-size:0.95rem">+1 (800) 555-CARE</a>
+      </div>
+      <div class="contact-card fade-up delay-2">
+        <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Email Dispatch</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px">Reply within 30 mins</p>
+        <a href="mailto:hello@cargloss.com" style="color:var(--electric);font-weight:700;font-size:0.95rem">dispatch@cargloss.com</a>
+      </div>
+      <div class="contact-card fade-up delay-3">
+        <div class="contact-icon"><i class="fa-solid fa-comments"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Live Concierge</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px">Instant web &amp; app chat</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:6px">
+          <div class="status-dot online"></div>
+          <span style="font-size:0.85rem;font-weight:700;color:var(--success)">Online Now</span>
+        </div>
+      </div>
+      <div class="contact-card fade-up delay-4">
+        <div class="contact-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Mobile Coverage</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px">Equipped self-powered vans</p>
+        <span style="font-size:0.85rem;font-weight:700;color:var(--electric)">65+ Metros Available</span>
+      </div>
+    </div>
+
+    <!-- Form & Map row -->
+    <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+      <!-- Form -->
+      <div style="flex:1.2;min-width:320px" class="fade-left">
+        <div class="booking-form-wrap">
+          <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Send Us a Direct Message</h2>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:24px">Fill out the quick inquiry below for immediate dispatch consultation or custom pricing questions.</p>
+          <form data-validate data-success-msg="Message received! A CarGloss dispatch specialist will reach out within 15 minutes.">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control-custom" placeholder="Alex" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control-custom" placeholder="Morgan" required>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control-custom" placeholder="alex@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control-custom" placeholder="+1 (555) 000-0000" required>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="form-group">
+                <label class="form-label">Inquiry Purpose</label>
+                <select class="form-control-custom" required>
+                  <option value="">Select purpose</option>
+                  <option>Mobile Booking Inquiry</option>
+                  <option>Corporate Fleet Inquiry</option>
+                  <option>Ceramic Coating Consultation</option>
+                  <option>Special Event / Group Wash</option>
+                  <option>Feedback or Support</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Your City &amp; ZIP</label>
+                <input type="text" class="form-control-custom" placeholder="e.g. Chicago, IL 60614" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Vehicle Details &amp; Special Instructions</label>
+              <textarea class="form-control-custom" rows="4" placeholder="Mention make, model, desired date, and any special concerns (e.g. pet hair, paint scratches)..." required style="resize:vertical"></textarea>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+              <input type="checkbox" id="terms-check" style="width:18px;height:18px;accent-color:var(--electric)" required>
+              <label for="terms-check" style="font-size:0.82rem;color:var(--text-muted)">I agree to receive booking updates via SMS &amp; email. Privacy policy applied.</label>
+            </div>
+            <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center">
+              <i class="fa-solid fa-paper-plane"></i> Send Inquiry &amp; Check Availability
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map + Hubs -->
+      <div style="flex:1;min-width:300px" class="fade-right">
+        <div class="map-container" style="margin-bottom:24px">
+          <iframe title="CarGloss Midwest HQ map – 2847 N Clark St, Chicago" src="https://www.google.com/maps?q=2847+N+Clark+St,+Chicago,+IL+60657&z=14&output=embed" style="position:absolute;inset:0;width:100%;height:100%;border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-pin-marker">
+            <div class="map-pin-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="map-pin-label"><i class="fa-solid fa-van-shuttle"></i> CarGloss Mobile Fleet HQ</div>
+          </div>
+          <div style="position:absolute;top:16px;left:16px;background:rgba(40,120,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(40,120,255,0.3);border-radius:var(--radius-sm);padding:6px 12px;font-size:0.75rem;font-weight:700;color:var(--electric)">
+            <i class="fa-solid fa-satellite-dish"></i> GPS Live Mobile Network
+          </div>
+        </div>
+
+        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:14px">Regional Operations Hubs</h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="office-card">
+            <div class="office-icon-wrap"><i class="fa-solid fa-building"></i></div>
+            <div>
+              <div style="font-weight:700;margin-bottom:2px">Midwest HQ &ndash; Chicago</div>
+              <div style="font-size:0.82rem;color:var(--text-muted)">2847 N. Clark Street, Chicago, IL 60657</div>
+              <div style="font-size:0.78rem;color:var(--electric);margin-top:3px"><i class="fa-regular fa-clock"></i> Mon&ndash;Sun: 7am &ndash; 9pm CST</div>
+            </div>
+          </div>
+          <div class="office-card">
+            <div class="office-icon-wrap"><i class="fa-solid fa-sun"></i></div>
+            <div>
+              <div style="font-weight:700;margin-bottom:2px">Southeast Hub &ndash; Miami</div>
+              <div style="font-size:0.82rem;color:var(--text-muted)">1200 Brickell Ave, Suite 1100, Miami, FL 33131</div>
+              <div style="font-size:0.78rem;color:var(--electric);margin-top:3px"><i class="fa-regular fa-clock"></i> Mon&ndash;Sun: 7am &ndash; 8pm EST</div>
+            </div>
+          </div>
+          <div class="office-card">
+            <div class="office-icon-wrap"><i class="fa-solid fa-mountain-sun"></i></div>
+            <div>
+              <div style="font-weight:700;margin-bottom:2px">West Coast Hub &ndash; Los Angeles</div>
+              <div style="font-size:0.82rem;color:var(--text-muted)">3500 W. Sunset Blvd, Los Angeles, CA 90028</div>
+              <div style="font-size:0.78rem;color:var(--electric);margin-top:3px"><i class="fa-regular fa-clock"></i> Mon&ndash;Sun: 7am &ndash; 9pm PST</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: SERVICE AREAS & ZIP CHECKER -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:36px">
+      <div class="section-badge"><i class="fa-solid fa-map-location-dot"></i> We Come to You</div>
+      <h2 class="section-title">Serving Over <span class="text-electric">65+ Metros</span> Nationwide</h2>
+      <p class="section-subtitle">Every mobile unit carries 100 gallons of deionized water and silent on-board power &mdash; zero hookups needed.</p>
+    </div>
+    <div style="text-align:center;max-width:860px;margin:0 auto" class="fade-up">
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Chicago, IL</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Miami, FL</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Los Angeles, CA</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> New York, NY</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Houston, TX</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Dallas, TX</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Phoenix, AZ</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Atlanta, GA</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Seattle, WA</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Denver, CO</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Las Vegas, NV</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Austin, TX</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Charlotte, NC</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> Boston, MA</span>
+      <span class="service-area-tag"><i class="fa-solid fa-check"></i> San Diego, CA</span>
+      <span class="service-area-tag" style="background:rgba(40,120,255,0.04);border-color:rgba(40,120,255,0.15);color:var(--text-muted)">+ 50 More Regional Metros</span>
+    </div>
+    <div style="margin-top:36px;max-width:520px;margin-left:auto;margin-right:auto" class="fade-up delay-2">
+      <div class="booking-form-wrap" style="padding:24px;text-align:center">
+        <h4 style="font-weight:700;margin-bottom:12px"><i class="fa-solid fa-magnifying-glass-location text-electric"></i> Instant Service Availability Check</h4>
+        <div class="zip-check-row">
+          <input type="text" class="form-control-custom" placeholder="Enter your 5-digit ZIP code" maxlength="5" inputmode="numeric" aria-label="ZIP code">
+          <button class="btn-primary-custom" style="padding:12px 24px;white-space:nowrap" onclick="alert('Great news! CarGloss mobile detailing units are actively roaming in your area. Proceeding to booking.')">
+            Check ZIP
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: CORPORATE FLEET INQUIRY -->
+<section class="section">
+  <div class="container-custom">
+    <div style="display:flex;gap:50px;align-items:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:300px" class="fade-left">
+        <div class="section-badge"><i class="fa-solid fa-briefcase"></i> Commercial &amp; Fleet</div>
+        <h2 class="section-title">Manage a <span class="text-electric">Corporate Fleet?</span></h2>
+        <p style="color:var(--text-muted);line-height:1.7;margin-bottom:24px">Keep your company vehicles impeccably maintained without taking them off the road. Our mobile units visit your corporate parking facility on scheduled maintenance cycles.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px">
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            <div class="card-icon" style="margin:0;width:40px;height:40px;font-size:0.95rem;flex-shrink:0"><i class="fa-solid fa-tags"></i></div>
+            <div>
+              <div style="font-weight:700;font-size:0.95rem;margin-bottom:2px">Tiered Volume Pricing</div>
+              <div style="font-size:0.85rem;color:var(--text-muted)">Up to 35% discount based on monthly vehicle wash volume.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            <div class="card-icon" style="margin:0;width:40px;height:40px;font-size:0.95rem;flex-shrink:0"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+              <div style="font-weight:700;font-size:0.95rem;margin-bottom:2px">Dedicated Account Executive</div>
+              <div style="font-size:0.85rem;color:var(--text-muted)">Single point of contact for schedule adjustments and consolidated billing.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            <div class="card-icon" style="margin:0;width:40px;height:40px;font-size:0.95rem;flex-shrink:0"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <div style="font-weight:700;font-size:0.95rem;margin-bottom:2px">Fleet Inspection Reports</div>
+              <div style="font-size:0.85rem;color:var(--text-muted)">Digital condition logs and photo verification sent after every service batch.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:300px" class="fade-right">
+        <div class="booking-form-wrap">
+          <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:6px">Request Custom Fleet Proposal</h3>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px">Receive a tailored corporate rate schedule within 2 hours.</p>
+          <form data-validate data-success-msg="Fleet proposal request submitted! An account manager will reach out within 2 hours.">
+            <div class="form-group"><label class="form-label">Company Name</label><input type="text" class="form-control-custom" placeholder="Executive Motors LLC" required></div>
+            <div class="form-group"><label class="form-label">Corporate Contact Name</label><input type="text" class="form-control-custom" placeholder="Jordan Vance" required></div>
+            <div class="form-group"><label class="form-label">Corporate Email</label><input type="email" class="form-control-custom" placeholder="jvance@company.com" required></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="form-group"><label class="form-label">Fleet Size</label>
+                <select class="form-control-custom" required><option value="">Select size</option><option>3&ndash;9 Vehicles</option><option>10&ndash;24 Vehicles</option><option>25&ndash;50 Vehicles</option><option>50+ Vehicles</option></select>
+              </div>
+              <div class="form-group"><label class="form-label">Frequency</label>
+                <select class="form-control-custom" required><option value="">Frequency</option><option>Weekly</option><option>Bi-Weekly</option><option>Monthly</option></select>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary-custom" style="width:100%;justify-content:center"><i class="fa-solid fa-paper-plane"></i> Submit Fleet Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: DISPATCH & SUPPORT FAQ -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="container-custom">
+    <div class="section-header-center fade-up" style="margin-bottom:40px">
+      <div class="section-badge"><i class="fa-solid fa-circle-question"></i> Client Inquiries</div>
+      <h2 class="section-title">Support &amp; Dispatch <span class="text-electric">FAQ</span></h2>
+      <p class="section-subtitle">Everything you need to know about contacting CarGloss and booking mobile sessions.</p>
+    </div>
+    <div style="max-width:760px;margin:0 auto">
+      <div class="faq-item fade-up delay-1">
+        <button class="faq-question">What are your live customer service operating hours? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Our phone and live chat dispatch teams are active 7 days a week, 7:00 AM &ndash; 9:00 PM CST. Online bookings can be placed 24/7 with immediate automatic scheduling confirmation.</div></div>
+      </div>
+      <div class="faq-item fade-up delay-2">
+        <button class="faq-question">Do I need to supply water or an electrical outlet? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Never. Every CarGloss mobile van is 100% self-contained with a silent inverter generator, commercial deionized water reservoir, and dual-action extraction tools.</div></div>
+      </div>
+      <div class="faq-item fade-up delay-3">
+        <button class="faq-question">Can I reschedule or cancel without penalties? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! We offer 100% free rescheduling or cancellation up to 4 hours before your appointed slot directly through your customer dashboard or via SMS.</div></div>
+      </div>
+      <div class="faq-item fade-up delay-4">
+        <button class="faq-question">How are commercial fleet accounts billed? <span class="faq-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Corporate clients are provided NET 30 invoicing terms, with digital manifests detailing vehicle registration numbers, technician timestamps, and before-and-after photo logs.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: IMMEDIATE BOOKING DISPATCH CTA -->
+<section class="section cta-section">
+  <div class="container-custom cta-wrap" style="text-align:center;position:relative;z-index:1">
+    <div class="section-badge" style="margin:0 auto 16px"><i class="fa-solid fa-bolt"></i> Same-Day Openings Available</div>
+    <h2 class="section-title fade-up" style="max-width:650px;margin:0 auto 20px">Ready For Showroom Perfection <span class="text-electric">At Your Doorstep?</span></h2>
+    <p class="section-subtitle fade-up" style="margin:0 auto 36px">Select your vehicle type, pick an arrival window, and let our mobile master detailers handle the rest.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="fade-up delay-1">
+      <a href="customer-dashboard.html" class="btn-primary-custom" style="padding:16px 38px"><i class="fa-solid fa-calendar-check"></i> Book Mobile Detail Now</a>
+      <a href="tel:+18005552273" class="btn-outline-custom" style="padding:16px 38px;color:white;border-color:rgba(255,255,255,0.55)"><i class="fa-solid fa-phone"></i> Call +1 (800) 555-CARE</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container-custom">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:48px;flex-wrap:wrap">
+      <div>
+        <div class="footer-logo">
+          <a href="../index.html" class="navbar-logo" style="margin-bottom:12px;display:inline-flex">
+            <div class="navbar-logo-icon"><i class="fa-solid fa-car-side"></i></div>
+            <span class="navbar-logo-text">Car<span>Gloss</span></span>
+          </a>
+        </div>
+        <p class="footer-desc">Premium mobile car detailing delivered to your doorstep. Certified technicians, professional products, and guaranteed results.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="service-details.html">Exterior Wash</a></li>
+          <li><a href="service-details.html">Interior Cleaning</a></li>
+          <li><a href="service-details.html">Full Detailing</a></li>
+          <li><a href="service-details.html">Paint Polishing</a></li>
+          <li><a href="service-details.html">Ceramic Coating</a></li>
+          <li><a href="service-details.html">Fleet Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Partner With Us</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Account</div>
+        <ul class="footer-links">
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="login.html#register">Register</a></li>
+          <li><a href="customer-dashboard.html">Dashboard</a></li>
+          <li><a href="customer-history.html">My Bookings</a></li>
+          <li><a href="customer-garage.html">My Vehicles</a></li>
+          <li><a href="#">Refer a Friend</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Get the App</div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px">Book, track and manage your detailing sessions from your phone.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-apple" style="font-size:1.5rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Download on</div><div style="font-size:0.85rem;font-weight:700">App Store</div></div>
+          </a>
+          <a href="#" style="display:flex;align-items:center;gap:10px;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 16px;color:var(--text);text-decoration:none;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--electric)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-brands fa-google-play" style="font-size:1.3rem;color:var(--electric)"></i>
+            <div><div style="font-size:0.7rem;color:var(--text-muted)">Get it on</div><div style="font-size:0.85rem;font-weight:700">Google Play</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CarGloss Inc. All rights reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Privacy Policy</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Terms of Service</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

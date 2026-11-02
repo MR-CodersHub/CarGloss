@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss Admin Operations Console &ndash; executive KPIs for fleet dispatch, revenue, customers, and system controls.">
+  <title>Operations KPIs &ndash; CarGloss Admin Console</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="admin" data-page="kpis">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-chart-line"></i> Admin Console</div>
+        <h1 class="dash-page-title">Operations Command Center</h1>
+        <p class="dash-page-subtitle">Real-time telemetry across 65+ metropolitan clusters &bull; 24 mobile detailing vans online.</p>
+      </div>
+      <div class="dash-head-actions">
+        <button class="btn-outline-custom" style="padding:10px 18px;font-size:0.82rem" onclick="alert('Exporting system telemetry CSV report...')"><i class="fa-solid fa-file-arrow-down"></i> Export CSV</button>
+        <button class="btn-primary-custom" style="padding:10px 18px;font-size:0.82rem" onclick="alert('Manual dispatch modal launched.')"><i class="fa-solid fa-plus"></i> Manual Dispatch</button>
+      </div>
+    </div>
+
+    <!-- 4 Key Admin Stats -->
+    <div class="dash-grid dash-grid-auto">
+      <div class="stat-card fade-up delay-1">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--electric)"><i class="fa-solid fa-wallet"></i></div>
+          <span class="stat-change up" style="font-size:0.75rem"><i class="fa-solid fa-arrow-up"></i> 18.4% MoM</span>
+        </div>
+        <div class="stat-value text-electric">$48,200</div>
+        <div class="stat-label">Gross Revenue This Month</div>
+        <div class="mini-bar"><div class="mini-bar-fill" style="width:74%"></div></div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px">74% of $65,000 monthly target reached</div>
+      </div>
+      <div class="stat-card fade-up delay-2">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--success)"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+          <span class="stat-change up" style="font-size:0.75rem"><i class="fa-solid fa-arrow-up"></i> 12.1%</span>
+        </div>
+        <div class="stat-value">284</div>
+        <div class="stat-label">Completed Details This Month</div>
+        <div class="mini-bar"><div class="mini-bar-fill" style="width:88%;background:var(--success)"></div></div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px">98.4% on-time dispatch rate</div>
+      </div>
+      <div class="stat-card fade-up delay-3">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--warning)"><i class="fa-solid fa-users"></i></div>
+          <span class="stat-change up" style="font-size:0.75rem"><i class="fa-solid fa-user-plus"></i> +31 This Mo</span>
+        </div>
+        <div class="stat-value">1,284</div>
+        <div class="stat-label">Active Vehicle Owners</div>
+        <div class="mini-bar"><div class="mini-bar-fill" style="width:65%;background:var(--warning)"></div></div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px">64% repeat booking frequency</div>
+      </div>
+      <div class="stat-card fade-up delay-4">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="stat-icon-wrap" style="color:var(--warning)"><i class="fa-solid fa-star"></i></div>
+          <span class="stat-change up" style="font-size:0.75rem"><i class="fa-solid fa-arrow-up"></i> 0.05</span>
+        </div>
+        <div class="stat-value">4.98</div>
+        <div class="stat-label">System CSAT Rating</div>
+        <div class="mini-bar"><div class="mini-bar-fill" style="width:99%;background:var(--electric)"></div></div>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px">Based on 2,847 verified reviews</div>
+      </div>
+    </div>
+
+    <div class="dash-grid dash-grid-split">
+      <!-- Operational snapshot -->
+      <div class="chart-wrapper">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-bolt text-electric"></i> Live Operational Snapshot</div>
+          <span class="tag tag-green"><i class="fa-solid fa-circle-dot"></i> Healthy</span>
+        </div>
+        <div class="revenue-row">
+          <span><i class="fa-solid fa-van-shuttle text-electric"></i> Mobile vans online</span>
+          <span style="font-weight:700">24 / 26</span>
+        </div>
+        <div class="revenue-row">
+          <span><i class="fa-solid fa-calendar-check" style="color:var(--success)"></i> Bookings in progress</span>
+          <span style="font-weight:700">18 active jobs</span>
+        </div>
+        <div class="revenue-row">
+          <span><i class="fa-solid fa-clock" style="color:var(--warning)"></i> Average arrival window</span>
+          <span style="font-weight:700">37 minutes</span>
+        </div>
+        <div class="revenue-row">
+          <span><i class="fa-solid fa-user-gear text-electric"></i> Field technicians on duty</span>
+          <span style="font-weight:700">8 active</span>
+        </div>
+        <div style="background:var(--bg-3);padding:12px;border-radius:var(--radius-sm);margin-top:16px;text-align:center">
+          <span style="font-size:0.8rem;color:var(--text-muted)">Monthly Operations Profit Margin: <strong style="color:var(--success)">68.2%</strong></span>
+        </div>
+      </div>
+
+      <!-- Admin quick access -->
+      <div class="chart-wrapper">
+        <div class="chart-header">
+          <div class="chart-title"><i class="fa-solid fa-grip text-electric"></i> Console Shortcuts</div>
+        </div>
+        <div class="dash-quick-grid">
+          <a href="admin-fleet.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-van-shuttle"></i></span>
+            <span>
+              <span class="dash-quick-title">Fleet Telemetry</span>
+              <span class="dash-quick-desc" style="display:block">24 vans online</span>
+            </span>
+          </a>
+          <a href="admin-dispatch.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-calendar-check"></i></span>
+            <span>
+              <span class="dash-quick-title">Today's Dispatch</span>
+              <span class="dash-quick-desc" style="display:block">24 bookings</span>
+            </span>
+          </a>
+          <a href="admin-revenue.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-chart-pie"></i></span>
+            <span>
+              <span class="dash-quick-title">Revenue Analytics</span>
+              <span class="dash-quick-desc" style="display:block">YTD $448,700</span>
+            </span>
+          </a>
+          <a href="admin-customers.html" class="dash-quick-card">
+            <span class="dash-quick-icon"><i class="fa-solid fa-users"></i></span>
+            <span>
+              <span class="dash-quick-title">Client CRM</span>
+              <span class="dash-quick-desc" style="display:block">1,284 customers</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

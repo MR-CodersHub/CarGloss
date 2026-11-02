@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarGloss Customer CRM directory &ndash; track lifetime value, garage fleet size, and loyalty tier status for VIP accounts.">
+  <title>Client CRM &ndash; CarGloss Admin Console</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="../assets/images/site.webmanifest">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="theme-color" content="#111318">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body data-dash="admin" data-page="crm">
+<header class="dash-topbar" id="dash-topbar"></header>
+
+<div class="dashboard-layout">
+<aside class="dashboard-sidebar" id="dashboard-sidebar"></aside>
+<main class="dashboard-main">
+  <div class="dash-content">
+
+    <div class="dash-page-head">
+      <div>
+        <div class="section-badge"><i class="fa-solid fa-address-book"></i> Client Database</div>
+        <h1 class="dash-page-title">Customer CRM &bull; VIP Directory</h1>
+        <p class="dash-page-subtitle">Track customer lifetime value (LTV), vehicles in garage, and recurring loyalty tier status.</p>
+      </div>
+      <div class="dash-head-actions">
+        <div class="admin-search">
+          <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);font-size:0.8rem"></i>
+          <input type="text" placeholder="Search customer...">
+        </div>
+        <button class="btn-primary-custom" style="padding:10px 18px;font-size:0.82rem" onclick="alert('Exporting customer CRM database...')">
+          <i class="fa-solid fa-download"></i> Export Full CRM
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-table-wrapper fade-up">
+      <table class="dashboard-table" style="width:100%">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Contact Email &amp; Phone</th>
+            <th>Primary Metro</th>
+            <th>Garage Fleet</th>
+            <th>Lifetime Bookings</th>
+            <th>Lifetime Value (LTV)</th>
+            <th>Tier Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar avatar-sm" style="background:var(--electric-fill);color:white">MR</div>
+                <div>
+                  <div style="font-weight:700">Marcus Reynolds</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted)">Member since Mar 2023</div>
+                </div>
+              </div>
+            </td>
+            <td style="font-size:0.82rem">m.reynolds@email.com<br><span style="color:var(--text-muted)">+1 (312) 555-8724</span></td>
+            <td>Chicago, IL</td>
+            <td>2 Vehicles (BMW, Tesla)</td>
+            <td style="font-weight:700">14 Sessions</td>
+            <td style="font-weight:800;color:var(--electric)">$1,842.00</td>
+            <td><span class="tag tag-blue"><i class="fa-solid fa-crown"></i> Gold Tier</span></td>
+            <td><button class="btn-outline-custom" style="padding:4px 10px;font-size:0.75rem">Profile</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar avatar-sm" style="background:var(--success-fill);color:white">ST</div>
+                <div>
+                  <div style="font-weight:700">Sarah Torres</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted)">Member since Jan 2024</div>
+                </div>
+              </div>
+            </td>
+            <td style="font-size:0.82rem">sarah.t@gmail.com<br><span style="color:var(--text-muted)">+1 (305) 555-4412</span></td>
+            <td>Miami, FL</td>
+            <td>1 Vehicle (Tesla M3)</td>
+            <td style="font-weight:700">8 Sessions</td>
+            <td style="font-weight:800;color:var(--electric)">$2,247.00</td>
+            <td><span class="tag tag-blue"><i class="fa-solid fa-gem"></i> Platinum VIP</span></td>
+            <td><button class="btn-outline-custom" style="padding:4px 10px;font-size:0.75rem">Profile</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar avatar-sm" style="background:var(--warning-fill);color:white">JK</div>
+                <div>
+                  <div style="font-weight:700">James Kovacs</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted)">Corporate Fleet Manager</div>
+                </div>
+              </div>
+            </td>
+            <td style="font-size:0.82rem">jkovacs@executivefleet.com<br><span style="color:var(--text-muted)">+1 (713) 555-9011</span></td>
+            <td>Houston, TX</td>
+            <td>12 Commercial Sprinters</td>
+            <td style="font-weight:700">31 Sessions</td>
+            <td style="font-weight:800;color:var(--electric)">$7,640.00</td>
+            <td><span class="tag tag-orange"><i class="fa-solid fa-building"></i> Commercial B2B</span></td>
+            <td><button class="btn-outline-custom" style="padding:4px 10px;font-size:0.75rem">Profile</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+</div>
+<script src="../assets/js/dashboard-shell.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
